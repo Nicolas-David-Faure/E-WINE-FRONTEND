@@ -1,15 +1,24 @@
-import React from 'react'
-import './scss/mainContent.scss'
+import React from "react";
+import "./scss/mainContent.scss";
 //commons
-import Auth from '../../commons/auth/Auth'
-import Header from '../header/Header'
+import Auth from "../../commons/auth/Auth";
+import Grid from "../grid/Grid";
+import { Route, Routes } from "react-router-dom";
 //components
+
 const MainContent = () => {
   return (
-    <main className='mainContent__main'>
-     
+
+    <main className="mainContent__main">
+      
+      <Routes>
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/browse" element={<Grid />} />
+      </Routes>
+
     </main>
-  )
+  
+  );
 }
 
-export default MainContent
+export default MainContent;
