@@ -1,0 +1,14 @@
+@import '../../../assets/sass/mixin';
+
+.login__main{
+  @include form-style;
+
+
+  .register__wave{
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
+  }
+
+ 
+}

@@ -1,12 +1,12 @@
 import React from 'react'
 import Auth from '../../commons/auth/Auth'
-
+import './scss/mainContent.scss'
 const MainContent = () => {
   return (
-    <div>
+    <main className='mainContent__main'>
       <Auth />
 
-    </div>
+    </main>
   )
 }
 
