@@ -7,9 +7,7 @@ import Header from '../header/Header'
 const MainContent = () => {
   return (
     <main className='mainContent__main'>
-      <Header />
-      <Auth />
-
+     
     </main>
   )
 }

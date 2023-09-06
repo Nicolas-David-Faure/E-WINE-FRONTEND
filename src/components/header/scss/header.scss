@@ -2,8 +2,11 @@
 
 .header__main{
   width: 100%;
-  height: 3rem;
+  height: 4rem;
   background-color: $color1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 
   div{
     .header__logo{
