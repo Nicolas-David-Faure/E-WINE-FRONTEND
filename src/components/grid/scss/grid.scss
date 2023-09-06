@@ -1,0 +1,11 @@
+@import "../../../assets/sass/variants";
+
+//contenedor de la grilla
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $espaciado;
+  background-color: $color-fondo;
+  padding: $espaciado;
+}

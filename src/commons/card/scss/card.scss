@@ -1,0 +1,41 @@
+@import "../../../assets/sass/variants";
+
+// Estilo de cada tarjeta de vino
+.vino {
+  background-color: white;
+  border: 1px solid $color-borde;
+  border-radius: 5px;
+  padding: $espaciado;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  h2 {
+    color: $color-titulo;
+    font-size: 1.5rem;
+    margin-top: 0;
+  }
+
+
+  .precio {
+    color: $color-precio;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-top: $espaciado / 2;
+  }
+
+  .boton-comprar {
+    background-color: $color-precio;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+}
