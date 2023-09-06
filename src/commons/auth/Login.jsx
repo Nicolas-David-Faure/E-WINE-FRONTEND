@@ -18,7 +18,7 @@ const Login = () => {
     console.log(userInfo)
     // axios.post('/api/user/login', userInfo)
     // .then((res)=>{
-    //   navigate('/browse/movie')
+    //   navigate('/browse/main')
     // })
     // .catch(({response})=>{
     //   const status = response.status

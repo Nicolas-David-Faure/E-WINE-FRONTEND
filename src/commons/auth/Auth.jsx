@@ -7,10 +7,9 @@ import './scss/auth.scss'
 import Login from './Login'
 import Register from './Register'
 const Auth = () => {
-  
+
   return (
     <section className='auth__main'>
-
 
      <Login />
     </section>
