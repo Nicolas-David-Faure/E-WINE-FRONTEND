@@ -8,10 +8,10 @@ const UserButtons = () => {
 
   return (
     <div className="userButtons__main">
-      <Link to="auth/register">
+      <Link to="/auth?type=register">
         <button>Registrate</button>
       </Link>
-      <Link to="auth/login">
+      <Link to="/auth?type=login">
         <button>Ingresá</button>
       </Link>
     </div>
