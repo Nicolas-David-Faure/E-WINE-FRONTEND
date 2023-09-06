@@ -8,6 +8,7 @@ import { Route, Routes } from "react-router-dom";
 
 const MainContent = () => {
   return (
+
     <main className="mainContent__main">
       
       <Routes>
@@ -15,7 +16,8 @@ const MainContent = () => {
         <Route path="/browse" element={<Grid />} />
       </Routes>
     </main>
+  
   );
-};
+}
 
 export default MainContent;

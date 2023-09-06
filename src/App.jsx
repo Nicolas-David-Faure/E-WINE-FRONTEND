@@ -1,6 +1,6 @@
-import "./App.scss";
-import Header from "./components/header/Header";
-import MainContent from "./components/main/MainContent";
+import './App.scss'
+import Header from './components/header/Header'
+import MainContent from './components/main/MainContent' 
 
 function App() {
   return (

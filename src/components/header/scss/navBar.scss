@@ -1,0 +1,23 @@
+@import '../../../assets/sass/variants';
+
+.navBar__main{
+ 
+  height: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: $color2;
+  font-size: 1.2rem;
+
+  a{
+    user-select: none;
+    color: $color6;
+    cursor: pointer;
+  }
+  a:hover, a:focus{
+    color: $color5;
+  }
+  a:active{
+    color: rgb(82, 25, 49);
+  }
+}
