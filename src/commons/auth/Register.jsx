@@ -12,7 +12,6 @@ import waveSVG from '../../assets/icons/waves/wave1.svg'
 //utils
 import cleanStateObj from '../../utils/cleanSatateObj'
 
-
 const inputMotion = {
   on:{},
   initial: {}
@@ -58,17 +57,18 @@ const Register = () => {
         value={infoUser.name}  
         placeholder='Nombre' 
         name="name"
-        onChange={handleChange} />
+        onChange={handleChange} 
+        required/>
       <motion.input 
         layout
- 
         initial={{opacity:0, y: -80}}
         animate={{opacity:1, y:0 , transition:{duration:1.1,type:'spring'}}}
         type="text"  
         value={infoUser.lastname} 
         placeholder='Apellido' 
         name="lastname"
-        onChange={handleChange} />
+        onChange={handleChange} 
+        required/>
       <motion.input
         layout
         
@@ -78,7 +78,8 @@ const Register = () => {
         value={infoUser.password}  
         placeholder='Contraseña' 
         name="password"
-        onChange={handleChange} />
+        onChange={handleChange}
+        required />
       <motion.input
         layout
         
@@ -88,7 +89,8 @@ const Register = () => {
         value={infoUser.email} 
         placeholder='Email' 
         name='email' 
-        onChange={handleChange}/>
+        onChange={handleChange}
+        required/>
 
       <motion.button
       layout

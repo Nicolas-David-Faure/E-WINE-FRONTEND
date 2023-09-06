@@ -46,7 +46,8 @@ const Login = () => {
       placeholder='Email' 
       name='email'
       value={userInfo.email} 
-      onChange={handleChange}/>
+      onChange={handleChange}
+      required/>
       <motion.input
       layout
       initial={{opacity:0, y: -70}}
@@ -56,7 +57,8 @@ const Login = () => {
       placeholder='Contraseña'
       name="password"
       value={userInfo.password}
-      onChange={handleChange}/>
+      onChange={handleChange}
+      required/>
 
       <motion.button
       layout
