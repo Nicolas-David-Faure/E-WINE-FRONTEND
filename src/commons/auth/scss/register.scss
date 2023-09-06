@@ -1,0 +1,11 @@
+@import '../../../assets/sass/variants';
+@import '../../../assets/sass/mixin';
+.register__main{
+  @include form-style;
+  
+  .register__wave{
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
+  }
+}

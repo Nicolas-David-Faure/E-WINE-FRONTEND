@@ -1,0 +1,67 @@
+@import './variants';
+
+
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin form-style{
+  position: relative;
+  width: 23rem;
+  margin-top: 5px;
+
+  height: 25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: $color2;
+  z-index: 4;
+  border-radius:2rem 2rem 0 0;
+  box-shadow: 2px 3px 10px black;
+
+  h2{
+    text-decoration: underline;
+    text-shadow: 2px  2px 10px black;
+  }
+  input{
+    width: 80%;
+    height: 3rem;
+    border-radius: 4rem;
+    z-index: 4;
+    outline: none;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.397);
+    border: none;
+    box-shadow: 2px 1px 10px black;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-shadow: 2px 1px 10px black;
+  }
+  input:hover, input:focus{
+    background-color: rgba(126, 126, 126, 0.212);
+  }
+  input::placeholder{
+    font-weight: 500;
+  }
+  button{
+    border-radius: 4rem;
+    width: 12rem;
+    height: 3rem;
+    z-index: 4;
+
+    background-color: rgba(128, 35, 35, 0.445);
+
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+    transition: all .3s ease;
+  }
+  button:hover{
+    scale:1.01;
+    background-color: rgba(172, 50, 50, 0.774);
+    
+  }
+
+
+}
