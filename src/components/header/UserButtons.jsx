@@ -6,7 +6,6 @@ import './scss/userButtons.scss'
 const UserButtons = () => {
 
 
- 
   return (
     <div className='userButtons__main'>
       <button >Registrate</button>
