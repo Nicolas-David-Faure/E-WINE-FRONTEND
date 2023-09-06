@@ -12,8 +12,8 @@ const MainContent = () => {
     <main className="mainContent__main">
       
       <Routes>
-        <Route path="/auth" element={<Auth />} />
-        <Route path="/browse" element={<Grid />} />
+        <Route path="/auth/*" element={<Auth />} />
+        <Route path="/*" element={<Grid />} />
       </Routes>
 
     </main>
