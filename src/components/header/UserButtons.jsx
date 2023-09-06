@@ -9,8 +9,8 @@ const UserButtons = () => {
  
   return (
     <div className='userButtons__main'>
-      <button onClick={handleRegister} >Registrate</button>
-      <button onClick={handleLogin} >Ingresá</button>
+      <button >Registrate</button>
+      <button >Ingresá</button>
     </div>
   )
 }
