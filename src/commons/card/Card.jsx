@@ -11,11 +11,15 @@ const Card = ({ producto }) => {
   return (
     <div className="card">
       <figure>
-        <img className="img" src={producto.imageUrl} alt={producto.name} />
+        <img className="img" src={producto.image} alt={producto.name} />
         <figcaption>
           <p>{producto.price}</p>
-          <h2 onClick={handleClick}>{producto.title}</h2>
+
+   
           <p>{producto.description}</p>
+
+          <h2 onClick={handleClick}>{producto.name}</h2>
+
         </figcaption>
       </figure>
     </div>
