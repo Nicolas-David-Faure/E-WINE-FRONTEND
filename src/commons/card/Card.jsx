@@ -1,7 +1,6 @@
 import React from "react";
 
 const Card = ({ producto }) => {
-  console.log(producto);
   return (
     <div className="card">
       <figure>
