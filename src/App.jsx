@@ -1,13 +1,35 @@
-import { useEffect } from "react";
-import "./App.scss";
-import Header from "./components/header/Header";
-import MainContent from "./components/main/MainContent";
-import axios from "axios";
+import { useEffect } from 'react';
+//router
+import { useNavigate } from 'react-router-dom';
+//redux
+import { useDispatch } from 'react-redux';
+import { handleUser } from './store/slice/userSlice';
+//axios
+import axios from 'axios';
+//styles
+import './App.scss'
+//components
+import Header from './components/header/Header'
+import MainContent from './components/main/MainContent' 
+
 
 function App() {
-  // useEffect(() => {
-  //   axios.get("/api/me").then(user => {})
-  // },[])
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  
+  useEffect(()=>{
+    axios('/api/user/me')
+    .then(({data: user})=>{
+      if(user){
+      navigate('/')
+      dispatch(handleUser(user))
+    }
+    })
+    .catch(err=>{
+      console.error(err)
+    })
+  },[])
 
   return (
     <>

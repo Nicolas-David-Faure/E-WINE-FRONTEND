@@ -1,36 +1,40 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+//router
+import { useNavigate } from 'react-router-dom';
+//redux
+import { useDispatch } from 'react-redux';
+import { handleUser } from '../../store/slice/userSlice';
 //framer-motion
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 //style
-import './scss/login.scss'
+import './scss/login.scss';
 //svg wave
-import waveSVG from '../../assets/icons/waves/wave1.svg'
-import axios from 'axios'
+import waveSVG from '../../assets/icons/waves/wave1.svg';
 //utils
-import cleanStateObj from '../../utils/cleanSatateObj'
+import cleanStateObj from '../../utils/cleanSatateObj';
+//services
+import userLogin from '../../services/userLogin';
 const Login = () => {
+  
   const [userInfo, setUserInfo] = useState({ email: '', password: '' })
-  const handleSubmit =(event)=>{
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const handleSubmit = async (event)=>{
     event.preventDefault()
-
-    setUserInfo(cleanStateObj)
-
-    console.log(userInfo)
-    // axios.post('/api/user/login', userInfo)
-    // .then((res)=>{
-    //   navigate('/browse/main')
-    // })
-    // .catch(({response})=>{
-    //   const status = response.status
-
-    //   if(status === 401) alert('Contraseña Incorrecta')
-    // })
+    await userLogin(userInfo)
+    .then(user=>{
+      if(user){
+      dispatch(handleUser(user))
+      setUserInfo(cleanStateObj)
+      navigate('/')
+    }
+    })
   }
 
   const handleChange = (event)=>{
     const inputValue = event.target.type !== 'number' ? event.target.value.toLowerCase() : event.target.value
     const inputName = event.target.name
-
     setUserInfo({...userInfo, [inputName]:inputValue})
   }
   
@@ -75,10 +79,5 @@ const Login = () => {
     </form>
   )
 }
-
-// email
-// password
-
-
 
 export default Login

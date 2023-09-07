@@ -39,6 +39,7 @@
     font-size: 1.5rem;
     font-weight: 600;
     text-shadow: 2px 1px 10px black;
+    transition: ease  background-color .3s;
   }
   input:hover, input:focus{
     background-color: rgba(126, 126, 126, 0.212);
