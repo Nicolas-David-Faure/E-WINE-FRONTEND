@@ -8,6 +8,7 @@ import "./scss/userButtons.scss";
 //icons
 import cartIcon from '../../assets/icons/cart.svg'
 import userIcon from '../../assets/icons/user.svg'
+import Logout from "../../commons/auth/Logout";
 const UserButtons = () => {
   const userInfo = useSelector(store=>store.userReducer)
   
@@ -41,6 +42,7 @@ const UserButtonsIsLoggin =( { user } )=>{
           
           <img src={cartIcon} alt="cart" />
     </div>
+    <Logout />
     </>
   )
 }
