@@ -11,8 +11,8 @@ const ProductFigure = ( { wine } ) => {
 
       <figcaption >
         <h2>{ wine.name }</h2>
-        <p>{ wine.description }</p>
         <p>${ wine.price }.00</p>
+        <p>{ wine.description }</p>
       </figcaption>
   </figure>
   )
