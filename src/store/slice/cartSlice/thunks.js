@@ -5,7 +5,7 @@ import axios from "axios";
 export default function addToCartThunk({
   id,
   email,
-  price = 10,
+  price ,
   incrementOrDecrement = true,
 }) {
   return async (dispatch) => {
@@ -14,6 +14,7 @@ export default function addToCartThunk({
       price,
       operation: incrementOrDecrement,
     };
+
 
     const cart = await axios
       .post(`/api/cart/${id}`, body)

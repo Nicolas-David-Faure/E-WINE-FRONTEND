@@ -23,9 +23,10 @@ const ItemsCart = ({ wines }) => {
   };
 
   const handleOperation = (event) => {
+
     const btnValue = event.target.value;
     const body = {
-      id: wines.wineId,
+      id: wines.id,
       email: userInfo.email,
       price: wines.price,
       incrementOrDecrement: incremetOrDecrement[btnValue],
