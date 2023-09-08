@@ -1,20 +1,24 @@
-import { addToCart } from "./cartSlice"
-import axios from "axios"
+import { updateCart } from "./cartSlice";
+import axios from "axios";
 
 
-export default function addToCartThunk({id , email , price ,incrementOrDecrement = true }){
- 
-  return async ( dispatch )=>{
-    
+export default function addToCartThunk({
+  id,
+  email,
+  price = 10,
+  incrementOrDecrement = true,
+}) {
+  return async (dispatch) => {
     const body = {
       email,
       price,
-      operation: incrementOrDecrement
-    }
-   
-   const cart = await axios.post(`/api/cart/${id}`,body).then(res=>console.log(res)).catch(err=> console.error(err))
-    // dispatch(setFilmsFounded(films))  
-  }
+      operation: incrementOrDecrement,
+    };
+
+    const cart = await axios
+      .post(`/api/cart/${id}`, body)
+      .then((res) => console.log(res))
+      .catch((err) => console.error(err));
+     dispatch(updateCart())
+  };
 }
-
-
