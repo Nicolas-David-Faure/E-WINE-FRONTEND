@@ -21,22 +21,24 @@ const ItemsCart = ({ wines }) => {
   };
 
   const handleOperation = (event) => {
-
     const btnValue = event.target.value;
-    const body = {
-      id: wines.id,
-      email: userInfo.email,
-      price: wines.price,
-      incrementOrDecrement: incremetOrDecrement[btnValue],
-    };
 
-    dispatch(addToCartThunk(body));
+      const body = {
+        id: wines.id,
+        email: userInfo.email,
+        price: wines.price,
+        incrementOrDecrement: incremetOrDecrement[btnValue],
+      };
+      if(wines.count >=1 && incremetOrDecrement[btnValue] == true){
+        dispatch(addToCartThunk(body));
+      }else if(wines.count === 1 && incremetOrDecrement[btnValue] == false){
+        return
+      }else{
+        dispatch(addToCartThunk(body));
+      }
   };
-
-
   
   const handleRemove = () => {
-
  
    axios.delete('/api/cart/'+wines.id+'/'+ userInfo.email)
    .then((res)=>{
@@ -55,7 +57,7 @@ const ItemsCart = ({ wines }) => {
         Precio:
         {" $" + wines.amount}
       </p>
-      <button onClick={handleRemove}>
+      <button  onClick={handleRemove}>
         <img src={deleteIcon} alt="delete" />
       </button>
 
@@ -63,7 +65,7 @@ const ItemsCart = ({ wines }) => {
         +
       </button>
 
-      <button onClick={handleOperation} value="decrement">
+      <button  onClick={handleOperation} value="decrement">
         -
       </button>
     </li>
