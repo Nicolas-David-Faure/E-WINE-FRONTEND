@@ -1,2 +1,48 @@
 @import "../../../../assets/sass/variants";
 
+// Estilo del carrito de vinos
+.cart__main {
+  padding: 20px;
+  border-radius: 5px;
+}
+
+// Estilo del encabezado
+.header {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+// Estilo de la lista de vinos
+.wine_list {
+  list-style-type: none;
+  padding: 0;
+
+  // Estilo de cada elemento de la lista (botella de vino)
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+
+    // Estilo de la imagen de la botella
+    img {
+      max-width: 80px;
+      max-height: 80px;
+      margin-right: 10px;
+    }
+
+    // Estilo del nombre del vino
+    .name_wine {
+      font-weight: bold;
+    }
+
+    // Estilo del precio del vino
+    .price_wine {
+      font-weight: bold;
+    }
+  }
+}
+
+

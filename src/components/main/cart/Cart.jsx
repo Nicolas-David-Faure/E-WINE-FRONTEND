@@ -9,7 +9,9 @@ import axios from "axios";
 import ItemsCart from "./ItemsCart";
 
 const Cart = () => {
-  const cartState = useSelector((store) => store.cartReducer);
+  const { update } = useSelector((store) => store.cartReducer);
+
+  const [cart, setCart] = useState([]);
 
   const handleBuy = () => {};
 
@@ -17,19 +19,25 @@ const Cart = () => {
   {name: "marcos", image: "hola", cantidad: 15, id: 5, total: 1500}
   */
 
-  useEffect(()=>{
-    axios.get('/api/cart/')
-    .then(({data})=>console.log(data))
-  },[])
+
+
+  useEffect(() => {
+    axios
+      .get("/api/cart/")
+      .then(({ data }) => setCart(data))
+      .catch((err) => console.error(err));
+  }, [update]);
+
   return (
     <div className="cart__main">
-      <h1>Carrito de compras</h1>
+      <h1 className="header">Carrito de compras</h1>
       <div>
         <h2>Productos disponibles</h2>
-        <ul>
-          {cartState.cartItems.map((producto) => (
-            <ItemsCart producto={producto} key={producto.id} />
-          ))}
+        <ul className="wine_list">
+          {cart &&
+            cart.map((producto) => (
+              <ItemsCart wines={producto} key={producto.id} />
+            ))}
           <button onClick={handleBuy}>Pagar</button>
         </ul>
       </div>
@@ -38,24 +46,3 @@ const Cart = () => {
 };
 
 export default Cart;
-
-/*
-<div>
-
-      <div>
-        <h2>Carrito de Compras</h2>
-        <ul>
-          {carrito.map((item) => (
-            <li key={item.id}>
-              {item.nombre} - Precio: {item.precio} USD - Cantidad: {item.cantidad}
-              <button onClick={() => eliminarProducto(item.id)}>Eliminar</button>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <p>Total a pagar: {total} USD</p>
-
-      <button onClick={() => alert('Implementa tu lógica de pago aquí')}>Pagar</button>
-    </div>
-*/
