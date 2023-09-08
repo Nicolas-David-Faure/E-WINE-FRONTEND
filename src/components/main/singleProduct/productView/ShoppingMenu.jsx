@@ -1,33 +1,44 @@
 import React from 'react'
+//router
+import { useNavigate } from 'react-router-dom';
 //styles
 import './scss/shoppingMenu.scss'
 //icons
 import locationIcon from '../../../../assets/icons/location-plus.svg';
+//redux
+import { useDispatch, useSelector } from 'react-redux';
+import addToCartThunk from '../../../../store/slice/cartSlice/thunks';
 
-const ShoppingMenu = ( { wine } ) => {
-  const winary = 'Santa rosa'
-  const amount = 1
-  
+
+const ShoppingMenu = ( {  wine  } ) => {
+  const { email } = useSelector(store=>store.userReducer.user)
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const handleAddToCart = ()=>{
+    const body = {
+      id: wine.id,
+      email,
+      price: wine.price,
+    }
+    dispatch(addToCartThunk(body))
+    navigate('/user/cart')
+  }
 
   return (
     <article className='shoppingMenu__main'>
       <h5>Envío gratis a todo el país</h5>
-
       <p>Conocé los tiempos y las formas de envío.</p>
-
       <p><img src={locationIcon} />Calcular cuándo llega</p>
-
-      <a>{winary}</a>
-
       <p>Hace Factura A</p>
        <div>   
           <p>Stock disponible</p>
           <p>Cantidad:</p>
-          <p>{amount} unidades</p>
+          <p> unidades</p>
           <p>(193 disponibles)</p>
         </div> 
             <button>Comprar Ahora</button>
-            <button>Añadir al carrito</button>
+            <button onClick={handleAddToCart}>Añadir al carrito</button>
       <p><a>Compra Protegida</a>, recibí el producto que esperabas o te devolvemos tu dinero.</p>
       <span>E-Wine Points: <p>Sumás 1660 puntos.</p></span> 
     </article>

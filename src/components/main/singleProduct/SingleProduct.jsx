@@ -1,25 +1,42 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+//router
+import { useLocation } from 'react-router-dom'
+//axios
+import axios from 'axios'
 //styles
 import './singleProduct.scss'
 //components
 import ProductReview from './productReviews/ProductReview'
 import ProductView from './productView/ProductView'
 
-const fakeData = {
-  id: 1,
-  title: "Vino Tinto",
-  description: "Un vino tinto delicioso.",
-  price: "$20.00",
-  imageUrl:
-    "https://www.gustoargentino.com/cdn/shop/products/estancia-mendoza-vino-tinto-merlot-malbec-1.jpg?v=1598603578&width=840",
-}
+const SingleProduct = ( ) => {
 
-const SingleProduct = ( {  wine = fakeData} ) => {
-
+  const [ wine , setWine  ] = useState(null)
+ 
+  const location = useLocation()
+  let id =  parseInt(location.pathname.split('/').at(-1))
+  
+ 
+  useEffect(()=>{
+    axios(`/api/wines/${id}`)
+    .then(({ data : wine })=>{
+      setWine(wine)
+    })
+    .catch(err=>{
+      console.error(err)
+    })
+  },[])
+ 
   return (
     <article className='singleProduct__main'>
-        <ProductView wine={ wine } />
-        <ProductReview />
+
+      {
+        wine &&
+        <>
+          <ProductView wine={ wine } />
+          <ProductReview />
+        </>
+      }
     </article>
   )
 }

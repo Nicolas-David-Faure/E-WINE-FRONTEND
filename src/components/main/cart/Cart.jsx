@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+//redux
 import { useDispatch, useSelector } from "react-redux";
+//styles
 import "./scss/cart.scss";
+//axios
+import axios from "axios";
+//component
 import ItemsCart from "./ItemsCart";
 
 const Cart = () => {
@@ -12,6 +17,10 @@ const Cart = () => {
   {name: "marcos", image: "hola", cantidad: 15, id: 5, total: 1500}
   */
 
+  useEffect(()=>{
+    axios.get('/api/cart/')
+    .then((res)=>console.log(res))
+  },[])
   return (
     <div className="cart__main">
       <h1>Carrito de compras</h1>

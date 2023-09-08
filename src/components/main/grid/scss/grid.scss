@@ -1,0 +1,12 @@
+@import "../../../../assets/sass/variants";
+
+//contenedor de la grilla
+
+.grid__main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  
+}
