@@ -8,7 +8,7 @@ import Auth from "../../commons/auth/Auth";
 //components
 import SingleProduct from "./singleProduct/SingleProduct";
 import Cart from "./cart/Cart";
-import Grid from "../grid/Grid";
+import Grid from "./grid/Grid";
 
 const MainContent = () => {
   return (

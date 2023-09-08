@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Card from "../../commons/card/Card";
+
+//commons
+import Card from "../../../commons/card/Card"
+//styles
 import "./scss/grid.scss";
+//axios
 import axios from "axios";
 
 const Grid = () => {
@@ -14,7 +18,7 @@ const Grid = () => {
   }, []);
 
   return (
-    <div className="grid__container">
+    <div className="grid__main">
       {wines.slice(0, 20).map((producto) => (
         <Card key={producto.id} producto={producto} />
       ))}

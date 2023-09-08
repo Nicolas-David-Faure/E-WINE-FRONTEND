@@ -20,7 +20,7 @@ function App() {
   
   useEffect(()=>{
     axios('/api/user/me')
-    .then(({data: user})=>{
+    .then( ( { data : { user } } )=>{
       if(user){
       navigate('/')
       dispatch(handleUser(user))

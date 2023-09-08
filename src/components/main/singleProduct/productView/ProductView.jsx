@@ -9,7 +9,7 @@ const ProductView = ( { wine } ) => {
   return (
     <div className='productView__main'>
       <ProductFigure wine={ wine }/>
-      <ShoppingMenu wine={wine} />
+      <ShoppingMenu wine={ wine } />
     </div>
   )
 }
