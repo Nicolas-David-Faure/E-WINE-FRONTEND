@@ -11,20 +11,31 @@ import addToCartThunk from '../../../../store/slice/cartSlice/thunks';
 
 
 const ShoppingMenu = ( {  wine  } ) => {
-  const { email } = useSelector(store=>store.userReducer.user)
+  const user = useSelector(store=>store.userReducer.user)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const handleAddToCart = ()=>{
-    const body = {
-      id: wine.id,
-      email,
-      price: wine.price,
-    }
-    dispatch(addToCartThunk(body))
-    navigate('/user/cart')
-  }
+    if(user?.email){
+      const body = {
+      id: wine?.id,
+      email: user?.email,
+      price: wine?.price,
+      }
+      dispatch(addToCartThunk(body))
+      navigate('/user/cart')
 
+    }else{
+      navigate('/auth?type=login')
+    }
+  }
+  const handleBuy =()=>{
+    if(user?.email){
+      console.log('comprar')
+    }else{
+      navigate('/auth?type=login')
+    }
+  }
   return (
     <article className='shoppingMenu__main'>
       <h5>Envío gratis a todo el país</h5>
@@ -37,8 +48,12 @@ const ShoppingMenu = ( {  wine  } ) => {
           <p> unidades</p>
           <p>(193 disponibles)</p>
         </div> 
-            <button>Comprar Ahora</button>
-            <button onClick={handleAddToCart}>Añadir al carrito</button>
+       
+  
+              <button onClick={handleBuy}>Comprar Ahora</button>
+              <button onClick={handleAddToCart}>Añadir al carrito</button>
+     
+     
       <p><a>Compra Protegida</a>, recibí el producto que esperabas o te devolvemos tu dinero.</p>
       <span>E-Wine Points: <p>Sumás 1660 puntos.</p></span> 
     </article>

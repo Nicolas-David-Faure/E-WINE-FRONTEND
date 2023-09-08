@@ -9,14 +9,14 @@ import './singleProduct.scss'
 import ProductReview from './productReviews/ProductReview'
 import ProductView from './productView/ProductView'
 
-const SingleProduct = ( ) => {
 
+const SingleProduct = ( ) => {
+ 
   const [ wine , setWine  ] = useState(null)
  
   const location = useLocation()
   let id =  parseInt(location.pathname.split('/').at(-1))
   
- 
   useEffect(()=>{
     axios(`/api/wines/${id}`)
     .then(({ data : wine })=>{

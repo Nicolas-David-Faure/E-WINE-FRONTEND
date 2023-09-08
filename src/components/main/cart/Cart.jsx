@@ -19,7 +19,7 @@ const Cart = () => {
 
   useEffect(()=>{
     axios.get('/api/cart/')
-    .then((res)=>console.log(res))
+    .then(({data})=>console.log(data))
   },[])
   return (
     <div className="cart__main">
