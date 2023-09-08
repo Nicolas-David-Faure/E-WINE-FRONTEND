@@ -19,8 +19,6 @@ const Cart = () => {
   {name: "marcos", image: "hola", cantidad: 15, id: 5, total: 1500}
   */
 
-
-
   useEffect(() => {
     axios
       .get("/api/cart/")

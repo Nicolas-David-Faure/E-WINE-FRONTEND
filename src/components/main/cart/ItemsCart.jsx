@@ -1,19 +1,17 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeCart } from "../../../store/slice/cartSlice";
+import { updateCart} from "../../../store/slice/cartSlice";
 import deleteIcon from "../../../assets/icons/delete.svg";
 import axios from "axios";
 import addToCartThunk from "../../../store/slice/cartSlice/thunks";
 
 const ItemsCart = ({ wines }) => {
+
   const userInfo = useSelector((store) => store.userReducer.user);
   console.log(wines);
 
   const dispatch = useDispatch();
-  const handleClickRemove = () => {
-    dispatch(removeCart(2));
-  };
-
+ 
   //console.log(userInfo.email);
 
   //email , id : wines , amount , boolean
@@ -23,17 +21,32 @@ const ItemsCart = ({ wines }) => {
   };
 
   const handleOperation = (event) => {
-
     const btnValue = event.target.value;
-    const body = {
-      id: wines.id,
-      email: userInfo.email,
-      price: wines.price,
-      incrementOrDecrement: incremetOrDecrement[btnValue],
-    };
 
-    dispatch(addToCartThunk(body));
+      const body = {
+        id: wines.id,
+        email: userInfo.email,
+        price: wines.price,
+        incrementOrDecrement: incremetOrDecrement[btnValue],
+      };
+      if(wines.count >=1 && incremetOrDecrement[btnValue] == true){
+        dispatch(addToCartThunk(body));
+      }else if(wines.count === 1 && incremetOrDecrement[btnValue] == false){
+        return
+      }else{
+        dispatch(addToCartThunk(body));
+      }
   };
+  
+  const handleRemove = () => {
+ 
+   axios.delete('/api/cart/'+wines.id+'/'+ userInfo.email)
+   .then((res)=>{
+    dispatch(updateCart())
+   })
+   .catch(err=>console.err(err))
+  };
+
 
   return (
     <li>
@@ -44,7 +57,7 @@ const ItemsCart = ({ wines }) => {
         Precio:
         {" $" + wines.amount}
       </p>
-      <button onClick={handleClickRemove}>
+      <button  onClick={handleRemove}>
         <img src={deleteIcon} alt="delete" />
       </button>
 
@@ -52,7 +65,7 @@ const ItemsCart = ({ wines }) => {
         +
       </button>
 
-      <button onClick={handleOperation} value="decrement">
+      <button  onClick={handleOperation} value="decrement">
         -
       </button>
     </li>
