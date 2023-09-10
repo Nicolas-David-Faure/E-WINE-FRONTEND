@@ -1,14 +1,16 @@
 import React, { useEffect } from "react";
+//redux
 import { useDispatch, useSelector } from "react-redux";
 import { updateCart} from "../../../store/slice/cartSlice";
+//
 import deleteIcon from "../../../assets/icons/delete.svg";
 import axios from "axios";
 import addToCartThunk from "../../../store/slice/cartSlice/thunks";
-
+import './scss/itemsCart.scss'
 const ItemsCart = ({ wines }) => {
 
   const userInfo = useSelector((store) => store.userReducer.user);
-  console.log(wines);
+ 
 
   const dispatch = useDispatch();
  
@@ -49,25 +51,28 @@ const ItemsCart = ({ wines }) => {
 
 
   return (
-    <li>
+    <li className="itemsCart__main">
+      <figure>
       <img style={{ width: 50, height: 75 }} src={wines.image} />
-      <p className="name_list">{wines.name}</p>
-      <p>Cantidad: {wines.count} </p>
-      <p className="price_list">
-        Precio:
-        {" $" + wines.amount}
-      </p>
-      <button  onClick={handleRemove}>
-        <img src={deleteIcon} alt="delete" />
-      </button>
+      <figcaption>
+     
+        <p className="itemsCart__name">{wines.name}</p>
+        <p>Cantidad: {wines.count} </p>
+        <p className="itemsCart__price">${wines.price} c/u</p>
 
-      <button onClick={handleOperation} value="increment">
-        +
-      </button>
+      </figcaption>
+      </figure>
 
-      <button  onClick={handleOperation} value="decrement">
-        -
-      </button>
+
+      <div className="itemsCart__cont_btn">
+        <button onClick={handleOperation} value="increment">+</button>
+
+        <button  onClick={handleOperation} value="decrement">-</button>
+      </div>
+        <p className="itemsCart__amount">{" $" + wines.amount}</p>
+  
+      <img onClick={handleRemove} src={deleteIcon} alt="delete" />
+    
     </li>
   );
 };

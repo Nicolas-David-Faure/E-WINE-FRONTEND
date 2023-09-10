@@ -1,0 +1,25 @@
+
+  // Estilo de cada elemento de la lista (botella de vino)
+  .itemsCart__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    text-align: start;
+    figure{
+      display: flex;
+      // Estilo de la imagen de la botella
+      img {
+        max-width: 80px;
+        max-height: 80px;
+        margin-right: 10px;
+      }
+    
+    }
+
+    .itemsCart__cont_btn{
+      display: flex;
+      align-items: center;
+    }
+  }
