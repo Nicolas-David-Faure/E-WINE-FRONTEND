@@ -9,21 +9,23 @@ import "./scss/cart.scss";
 import axios from "axios";
 //component
 import ItemsCart from "./ItemsCart";
-
+//utils
+import numberFormater from "../../../utils/numberFormater";
 const Cart = () => {
   const { update } = useSelector((store) => store.cartReducer);
+  const user = useSelector((store) => store.userReducer.user);
   const navigate = useNavigate()
   const [cart, setCart] = useState([]);
 
-  const handleBuy = () => {navigate('/')};
+  const handleBuy = () => {navigate('/user/cart/continuebuy')};
 
-  /*
-  {name: "marcos", image: "hola", cantidad: 15, id: 5, total: 1500}
-  */
-
+  let totalAmount = cart.reduce((acumulator , item)=>{
+    return acumulator + parseInt(item.amount)
+  },0)
+  
   useEffect(() => {
     axios
-      .get("/api/cart/")
+      .get(`/api/cart/${user?.email}`)
       .then(({ data }) => setCart(data))
       .catch((err) => console.error(err));
   }, [update]);
@@ -31,15 +33,25 @@ const Cart = () => {
   return (
     <div className="cart__main">
       <h1 className="cart__title">Carrito de compras</h1>
-      <div>
         <h2>Productos disponibles</h2>
+      <div className="cart__cont_products">
         <ul className="cart__cont_list">
           {cart &&
             cart.map((producto) => (
               <ItemsCart wines={producto} key={producto.id} />
             ))}
-          <button onClick={handleBuy}>Comprar</button>
         </ul>
+
+
+        <div className="cart__cont_amount">
+          <div className="cart__btn_continue">
+            <button onClick={handleBuy} >Continuar compra</button>
+          </div>
+          <div className="cart__totalAmount">
+            <p>Total a pagar</p>
+            <p>${numberFormater(totalAmount)},00</p>
+          </div>
+        </div>
       </div>
     </div>
   );

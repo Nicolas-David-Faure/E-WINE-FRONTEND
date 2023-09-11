@@ -1,29 +1,89 @@
+
 @import "../../../../assets/sass/variants";
 
 // Estilo del carrito de vinos
 .cart__main {
   padding: 20px;
   border-radius: 20px;
-  width: 80%;
-  height: 80vh;
-  margin: 100px auto;
+  width: 95%;
+  height: 95vh;
+  margin: 30px auto;
   background-color: $color3;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.644);
-  // Estilo del title
-  .cart__title {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
+
+
+  .cart__cont_products{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80%;
+   
+    // Estilo del title
+    .cart__title {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .cart__cont_list{
+        list-style-type: none;
+        padding: 10px;
+        height: 80%;
+        overflow-y: auto;
+
+
+        &::-webkit-scrollbar {
+          height: 10px;
+          width: 10px;
+        }
+        &::-webkit-scrollbar-thumb:active {
+          background-color: #791c15;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+          background-color: #991712;
+        }
+        &::-webkit-scrollbar-thumb {
+          border-radius: 5px;
+          background-color: #7e1818;
+        }
+        &::-webkit-scrollbar-track:active {
+          background-color: #c22c2c;
+        }
+         &::-webkit-scrollbar-track:hover {
+         background-color: #693939;
+       }
+        &::-webkit-scrollbar-track {
+          border-radius: 5px;
+          background-color: #333333;
+          transition: all ease .3s;
+        }
+    }
+
+
+    .cart__cont_amount{
+      width: 100%;
+      height: 5rem;
+      border-radius: 10px;
+      background-color: $color5;
+      display: flex ;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 2rem;
+
+
+
+     
+
+      .cart__totalAmount{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 4rem;
+        width: 12rem;
+      }
+    }
   }
-
-  .cart__cont_list{
-    
-      list-style-type: none;
-      padding: 10px;
-    
-  }
-
-
 }
 
 
