@@ -46,7 +46,7 @@ const ItemsCart = ({ wines }) => {
    .then((res)=>{
     dispatch(updateCart())
    })
-   .catch(err=>console.err(err))
+   .catch(err=>console.error(err))
   };
 
 

@@ -8,7 +8,7 @@ import "./scss/userButtons.scss";
 //icons
 import cartIcon from "../../assets/icons/cart.svg";
 import userIcon from "../../assets/icons/user.svg";
-import Logout from "../../commons/auth/Logout";
+import Logout from "../auth/Logout";
 const UserButtons = () => {
   const userInfo = useSelector((store) => store.userReducer);
 
