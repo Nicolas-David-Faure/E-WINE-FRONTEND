@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom";
 //styles
 import "./scss/mainContent.scss";
 //commons
-import Auth from "../../commons/auth/Auth";
+import Auth from "../auth/Auth";
 //components
 import SingleProduct from "./singleProduct/SingleProduct";
 import Cart from "./cart/Cart";
