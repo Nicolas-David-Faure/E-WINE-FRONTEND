@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect , useRef} from 'react';
 //router
 import { useNavigate } from 'react-router-dom';
 //redux
@@ -15,7 +15,7 @@ import cleanStateObj from '../../utils/cleanSatateObj';
 //services
 import userLogin from '../../services/userLogin';
 const Login = () => {
-  
+  const refSubmit = useRef()
   const [userInfo, setUserInfo] = useState({ email: '', password: '' })
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -38,6 +38,14 @@ const Login = () => {
     setUserInfo({...userInfo, [inputName]:inputValue})
   }
   
+
+
+  useEffect(() => {
+    refSubmit.current.disabled = true;
+    const userValues = Object.values(userInfo);
+    const verify = userValues.every((value) => value !== "");
+    refSubmit.current.disabled = !verify;
+}, [userInfo]);
   return (
     <form onSubmit={handleSubmit} className='login__main'>
       <h2>Iniciar Sesión</h2>
@@ -65,6 +73,7 @@ const Login = () => {
       required/>
 
       <motion.button
+      ref={refSubmit}
       layout
       initial={{opacity:0, y: -50}}
       animate={{

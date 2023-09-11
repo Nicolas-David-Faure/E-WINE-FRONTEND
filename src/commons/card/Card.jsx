@@ -9,7 +9,6 @@ import { motion } from "framer-motion";
 import truncateString from '../../utils/truncateString'
 import numberFormater from '../../utils/numberFormater'
 
-
 const Card = ({ producto }) => {
 
   const nagivate = useNavigate()
