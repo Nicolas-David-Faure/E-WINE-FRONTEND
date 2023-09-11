@@ -1,9 +1,15 @@
 import React from "react";
+//router
 import { useNavigate } from "react-router-dom";
+//styles
 import './scss/card.scss'
-import truncateString from '../../utils/truncateString'
 //framer-motion
 import { motion } from "framer-motion"; 
+//utils
+import truncateString from '../../utils/truncateString'
+import numberFormater from '../../utils/numberFormater'
+
+
 const Card = ({ producto }) => {
 
   const nagivate = useNavigate()
@@ -27,7 +33,7 @@ const Card = ({ producto }) => {
       <figure>
         <img className="img" src={producto.image} alt={producto.name} />
         <figcaption>
-          <p>${producto.price}</p>
+          <p>${numberFormater(producto.price)},00</p>
           <h2 >{truncateString(producto.name, 35,isMajorOf35)}</h2>
         </figcaption>
       </figure>
