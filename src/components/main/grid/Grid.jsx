@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 //commons
 import Card from "../../../commons/card/Card"
+import Banner from "../../../commons/banner/Banner";
 //styles
 import "./scss/grid.scss";
 //axios
@@ -19,6 +20,7 @@ const Grid = () => {
 
   return (
     <div className="grid__main">
+      <Banner />
       {wines.slice(0, 20).map((producto) => (
         <Card key={producto.id} producto={producto} />
       ))}
