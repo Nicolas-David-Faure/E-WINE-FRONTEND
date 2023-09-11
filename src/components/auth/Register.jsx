@@ -41,18 +41,16 @@ const Register = () => {
         ? event.target.value.toLowerCase()
         : event.target.value; //else not
 
-    const userValues = Object.values(infoUser);
-
-    const verify = userValues.every((value) => value !== "");
-
-    refSubmit.current.disabled = !verify;
-
-    setInfoUser({ ...infoUser, [inputName]: inputValue });
-  };
-
-  useEffect(() => {
-    refSubmit.current.disabled = true;
-  }, []);
+        setInfoUser({ ...infoUser, [inputName]: inputValue });
+        
+      };
+      
+      useEffect(() => {
+        refSubmit.current.disabled = true;
+        const userValues = Object.values(infoUser);
+        const verify = userValues.every((value) => value !== "");
+        refSubmit.current.disabled = !verify;
+  }, [infoUser]);
 
   return (
     <form onSubmit={handleSubmit} className="register__main">
