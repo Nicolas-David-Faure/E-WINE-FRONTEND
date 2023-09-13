@@ -1,22 +1,26 @@
 import React from "react";
 //styles
 import "./scss/header.scss";
-//logo
-import logoE_Wine from "../../assets/images/Logo_e-wine.png";
 //component
 import NavBar from "./NavBar";
 import Search from "./Search";
 import UserButtons from "./UserButtons";
 import { Link } from "react-router-dom";
+//icons
+import cupWine from '../../assets/icons/wine.svg'
+import bottleWine from '../../assets/icons/wine-bottle.svg'
+
 const Header = () => {
   return (
     <>
       <header className="header__main">
-        <div>
           <Link to="/">
-            <img src={logoE_Wine} className="header__logo" alt="logo_e-wine" />
+            <div className="header__logo">
+                <h1>E-WINE</h1>
+                <img className="header__icon cup_wine" src={cupWine} />
+                <img className="header__icon bottle_wine" src={bottleWine} />
+            </div>
           </Link>
-        </div>
         <Search />
         <UserButtons />
       </header>
