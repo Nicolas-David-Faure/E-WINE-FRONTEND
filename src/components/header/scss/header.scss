@@ -15,6 +15,10 @@
     width: 17rem;
     text-align: start;
     position: relative;
+
+    h1{
+      text-shadow: -2px 3px 2px rgb(151, 44, 44);
+    }
     .header__icon{
       width: 30px;
       position: absolute;
