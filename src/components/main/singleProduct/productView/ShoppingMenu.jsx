@@ -12,16 +12,17 @@ import addToCartThunk from '../../../../store/slice/cartSlice/thunks';
 
 const ShoppingMenu = ( {  wine  } ) => {
   const user = useSelector(store=>store.userReducer.user)
+
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const handleAddToCart = ()=>{
     if(user?.email){
       const body = {
-      id: wine?.id,
-      email: user?.email,
-      price: wine?.price,
-      }
+                  id: wine?.id,
+                  email: user?.email,
+                  price: wine?.price,
+             }
       dispatch(addToCartThunk(body))
       navigate('/user/cart')
 

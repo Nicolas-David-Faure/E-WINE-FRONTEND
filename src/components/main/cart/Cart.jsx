@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 //routes
 import { useNavigate } from "react-router-dom";
 //redux
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 //styles
 import "./scss/cart.scss";
 //axios
@@ -11,10 +11,14 @@ import axios from "axios";
 import ItemsCart from "./ItemsCart";
 //utils
 import numberFormater from "../../../utils/numberFormater";
+
 const Cart = () => {
   const { update } = useSelector((store) => store.cartReducer);
   const user = useSelector((store) => store.userReducer.user);
+
   const navigate = useNavigate()
+
+  
   const [cart, setCart] = useState([]);
 
   const handleBuy = () => {navigate('/user/cart/continuebuy')};
@@ -28,12 +32,13 @@ const Cart = () => {
       .get(`/api/cart/${user?.email}`)
       .then(({ data }) => setCart(data))
       .catch((err) => console.error(err));
+
   }, [update]);
 
   return (
     <div className="cart__main">
       <h1 className="cart__title">Carrito de compras</h1>
-        <h2>Productos disponibles</h2>
+        
       <div className="cart__cont_products">
         <ul className="cart__cont_list">
           {cart &&
@@ -51,6 +56,8 @@ const Cart = () => {
             <p>Total a pagar</p>
             <p>${numberFormater(totalAmount)},00</p>
           </div>
+
+          
         </div>
       </div>
     </div>

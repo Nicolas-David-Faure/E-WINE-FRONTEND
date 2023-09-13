@@ -32,10 +32,11 @@ function App() {
   },[])
 
   return (
-    <>
+    <main className='main__main'>
       <Header />
       <MainContent />
-    </>
+     
+    </main>
   );
 }
 
