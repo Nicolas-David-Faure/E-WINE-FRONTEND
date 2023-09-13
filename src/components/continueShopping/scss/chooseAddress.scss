@@ -1,0 +1,143 @@
+@import '../../../assets/sass/variants';
+
+.chooseAddress__{
+  
+  &main{
+    width:56%;
+    height: 98%;
+    background-color: #000000c7;
+    border-radius: 6px 0 0 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.562);
+    position: relative;
+
+    h2{
+      margin: 1.5rem 0;
+    }
+    a{
+      position: absolute;
+      bottom: 3rem;
+      left: 3rem;
+
+      &:hover{
+        color: aliceblue;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &continue_btn{
+    position: absolute;
+    bottom: 3rem;
+      right: 3rem;
+  }
+  &form{
+    width: 60%;
+    height: 70%;
+    display: flex ;
+    flex-direction: column;
+    text-align: start;
+    justify-content: space-evenly;
+    position: relative;
+    padding: 20px;
+    a{
+      position: absolute;
+      top: -1rem;
+      left: -4rem;
+
+      &:hover{
+        color: aliceblue;
+        cursor: pointer;
+      }
+    }
+    input{
+      width: 12rem;
+      height: 2rem;
+      outline: none;
+      text-align: center;
+    }
+    &_street, &_locality{
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      div:nth-child(1),  div:nth-child(2){
+        display: flex;
+        flex-direction: column;
+        input{
+          width: 12rem;
+        }
+      }
+    }
+    &_apartment, &_postal-code{
+          display: flex;
+          flex-direction: column;
+    }
+  }
+
+  &cont_list{
+    list-style: none;
+    width: 95%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+   
+    overflow-y: auto;
+
+    .chooseAddres__selected{
+      box-shadow: 0px 1px 10px rgb(196, 146, 146);
+      }
+    .chooseAddress__list{
+      width: 90%;
+      height: 6rem;
+      background-color: $color4;
+      border-radius: 6px;
+      margin: 10px auto;
+      position: relative;
+      display: flex;
+      padding: 10px;
+      justify-content: center;
+      cursor: pointer;
+      color: rgba(0, 0, 0, 0.774);
+      
+      input{
+        position: absolute;
+        top: 8px;
+        left: 5px;
+        width: 20px;
+        cursor: pointer;
+      }
+
+      .chooseAddress__list_div{
+        width: 40%;
+        padding: 5px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: start;
+        
+      }
+    }
+    a{
+      color: white;
+      cursor: pointer;
+      text-align: start;
+      position: absolute;
+      
+      &:hover{
+        color: rgb(174, 188, 201);
+      }
+    }
+    
+  }
+
+  &back{
+  
+    position: absolute;
+    top: 3rem;
+    left: 0rem;
+  }
+}
+

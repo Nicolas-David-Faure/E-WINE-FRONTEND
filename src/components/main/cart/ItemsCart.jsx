@@ -3,12 +3,11 @@ import React, { useEffect } from "react";
 import './scss/itemsCart.scss'
 //redux
 import { useDispatch, useSelector } from "react-redux";
-import { updateCart} from "../../../store/slice/cartSlice";
+import { updateCart } from "../../../store/slice/cartSlice";
 import addToCartThunk from "../../../store/slice/cartSlice/thunks";
 //axios
 import axios from "axios";
 //icons
-import deleteIcon from "../../../assets/icons/delete.svg";
 import arrowUpIcon from "../../../assets/icons/arrowUp.svg";
 import arrowDownIcon from "../../../assets/icons/arrowDown.svg";
 //utils
@@ -26,6 +25,7 @@ const ItemsCart = ({ wines }) => {
 
   const handleOperation = (event) => {
     const btnValue = event.target.value;
+
     const body = {
       id: wines.id,
       email: userInfo.email,
@@ -45,7 +45,7 @@ const ItemsCart = ({ wines }) => {
   const handleRemove = () => {
  
    axios.delete('/api/cart/'+wines.id+'/'+ userInfo.email)
-   .then((res)=>{
+   .then(()=>{
     dispatch(updateCart())
    })
    .catch(err=>console.error(err))

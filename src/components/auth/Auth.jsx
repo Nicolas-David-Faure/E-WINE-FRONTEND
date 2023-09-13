@@ -7,7 +7,6 @@ import './scss/auth.scss'
 import Login from './Login'
 import Register from './Register'
 const Auth = () => {
-
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search); //search for params
   const type = searchParams.get('type'); //get the param 'type'
@@ -20,8 +19,7 @@ const Auth = () => {
   }
   return (
     <section className='auth__main'>
-
-    {componentToRender}
+      {componentToRender}
     </section>
   )
 }

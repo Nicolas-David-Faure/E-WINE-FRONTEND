@@ -15,6 +15,8 @@ export const cartSlice = createSlice({
       state.count = payload;
     },
     addToCart: (state, { payload }) => {},
+
+    
     updateCart: (state) => {
       state.update = !state.update;
     },
