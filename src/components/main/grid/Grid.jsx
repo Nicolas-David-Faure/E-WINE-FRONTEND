@@ -24,7 +24,9 @@ const Grid = () => {
 
   return (
     <div className="grid__main">
-      <Banner />
+
+      {!wineFounded && <Banner />}
+      
       {wineFounded
         ? wineFounded.map((producto) => (
             <Card key={producto.id} producto={producto} />
