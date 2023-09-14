@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-//redux
-import { useSelector } from 'react-redux'
 //styles
 import './scss/continueShopping.scss'
 //components
@@ -12,9 +10,7 @@ import ThanksForYourPurcharse from './ThanksForYourPurcharse'
 
 
 const ContinueShopping = () => {
-
   const [ phaseContinueShopping , setPhaseContinueShopping ] = useState(0)
-
   const handleContinue = ( bolean )=>{
     if(bolean){
       setPhaseContinueShopping(phaseContinueShopping + 1)

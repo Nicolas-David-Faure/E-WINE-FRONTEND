@@ -8,7 +8,8 @@ import { addSelectedAddress } from '../../store/slice/continueShoppingSlice/cont
 import './scss/chooseAddress.scss'
 //axios
 import axios from 'axios'
-
+//utils
+import cleanStateObj from '../../utils/cleanSatateObj'
 
 const ChooseAddress = ( { setContinue } ) => {
   const user = useSelector(store=>store.userReducer.user)
@@ -24,6 +25,10 @@ const ChooseAddress = ( { setContinue } ) => {
     dispatch(addSelectedAddress(addressFiltered[0]))
   }
 
+  const handleDelete =()=>{
+    console.log('delete');
+  }
+
   useEffect(()=>{
     if(user?.email){
       axios.get('/api/checkout/address/'+user?.email)
@@ -32,7 +37,7 @@ const ChooseAddress = ( { setContinue } ) => {
       })
       .catch(err=>console.error(err))
     }
-  },[])
+  },[editOrAddNewAddress])
   
   return (
     <section className='chooseAddress__main'>
@@ -52,6 +57,7 @@ const ChooseAddress = ( { setContinue } ) => {
             className={checkRadio === `chooseAddres-${address.id}` ? 'chooseAddres__selected chooseAddress__list' : 'chooseAddress__list'}
             onClick={()=>handleSelect(`chooseAddres-${address.id}` , address.id)} 
             key={address.id}>
+              <a className='chooseAddress__list_delete' onClick={handleDelete}>Eliminar</a>
             <input 
              type="radio" 
              name="radio" 
@@ -116,7 +122,11 @@ const FormAddress = ( { user , setEditOrAddNewAddress} )=> {
     e.preventDefault()
     console.log(addressInfo)
     axios.post('/api/checkout/address/'+user?.email,addressInfo)
-    .then(res=>console.log(res))
+    .then(res=>{
+      setAddressInfo(cleanStateObj)
+      setEditOrAddNewAddress(false)
+    })
+    .catch(err=>console.error(err))
 
   }
   

@@ -100,7 +100,14 @@
       justify-content: center;
       cursor: pointer;
       color: rgba(0, 0, 0, 0.774);
-      
+
+
+      &_delete{
+        position: absolute;
+        top: 5px;
+        left: 89%;
+        color: #ffffff60;
+      }
       input{
         position: absolute;
         top: 8px;
