@@ -5,12 +5,12 @@ import AddYDelAdmin from "./addYdeleteAdmin/AddYDelAdmin";
 import AddYRemProduct from "./addYdelProduc/AddYRemProduct";
 
 const PanelAdmin = () => {
-  const userInfo = useSelector((store) => store.userReducer);
-  console.log(userInfo);
+  const user = useSelector((store) => store.userReducer.user);
+  
 
   return (
     <section>
-      {userInfo.isSuperAdmin && <AddYDelAdmin />}
+      {user?.superAdminUser && <AddYDelAdmin />}
       <AddYRemProduct />
     </section>
   );
