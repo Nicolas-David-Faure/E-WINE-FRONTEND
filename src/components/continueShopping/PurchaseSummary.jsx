@@ -15,7 +15,17 @@ const PurchaseSummary = ({ phaseContinueShopping , setContinue }) => {
   let totalAmount = dataCart?.reduce((acumulator , item)=>{
     return acumulator + parseInt(item.amount)
   },0)
+
   //email , nombre , direccion , totalAmount
+
+  const handleSendPurcharse =()=>{
+    axios.put('/api/cart', {email: user.email})
+    .then(res=>{
+      setContinue(true)
+      
+    })
+    .catch((err)=>console.error(err))
+  }
   useEffect(()=>{
     axios
         .get(`/api/cart/${user?.email}`)
@@ -47,7 +57,7 @@ const PurchaseSummary = ({ phaseContinueShopping , setContinue }) => {
       </ul>
 
         <div className='purchaseSummary__total_amount' >
-        {phaseContinueShopping == 2 ? <button onClick={()=>setContinue(true)} className='purchaseSummary__btn_buy'>Comprar</button> : <h3>Total a pagar</h3>}
+        {phaseContinueShopping == 2 ? <button onClick={handleSendPurcharse} className='purchaseSummary__btn_buy'>Comprar</button> : <h3>Total a pagar</h3>}
             {dataCart && <p>${numberFormater(totalAmount)},00</p>}
         </div>
     </aside>
