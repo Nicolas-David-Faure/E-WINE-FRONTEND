@@ -11,9 +11,10 @@ import dollarIcon from '../../assets/icons/dollarIcon.svg'
 const ConfirmDetails = ( { setContinue } ) => {
   const { addressSelectedInfo , paymentMethodSelectedInfo } = useSelector(store=>store.continueShoppingReducer)
 
+
+  
   return (
     <section className='confirmDetails__main'>
-      
       <h2>Revisá y confirmá tu compra</h2>
         <AddressInfo setContinue={setContinue} info={addressSelectedInfo} />
         <PaymentMethodInfo setContinue={setContinue} info={paymentMethodSelectedInfo}/>
