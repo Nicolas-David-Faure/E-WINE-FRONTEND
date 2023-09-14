@@ -1,0 +1,8 @@
+/* AddProductForm.scss */
+
+.main__containerAdd {
+  float: left; /* Muestra el formulario a la izquierda */
+  width: 50%; /* Divide el ancho de la página en dos columnas */
+  padding: 20px;
+  box-sizing: border-box; /* Incluye el padding en el ancho total */
+}
