@@ -14,7 +14,6 @@ import maskNumber from '../../utils/maskNumber'
 const ChoosePaymentMethod = ( {setContinue}) => {
   const user = useSelector(store=>store.userReducer.user)
   const [ paymentMethods , setPaymentMethods ] = useState(null)
-
   const [ activeFormPaymentMethod , setActiveFormPaymentMethod ] = useState(false)
   const [checkRadio , setCeckRadio] = useState(null)
   const dispatch = useDispatch()
@@ -28,13 +27,17 @@ const ChoosePaymentMethod = ( {setContinue}) => {
   const handleComeback =()=>{
     setContinue(false)
   }
+
+  const handleDelete =()=>{
+    console.log('delete');
+  }
   useEffect(()=>{
      axios.get('/api/checkout/payment/'+user?.email)
     .then(({data})=>{
       setPaymentMethods(data)
     })
     .catch(err=>console.error(err))
-  },[])
+  },[activeFormPaymentMethod])
   
   return (
     <section className='choosePaymentMethod__main'>
@@ -51,7 +54,7 @@ const ChoosePaymentMethod = ( {setContinue}) => {
                     className={checkRadio === `method-${method.id}` ? 'method__selected choosePaymentMethod__list' : 'choosePaymentMethod__list'}
                     onClick={()=>handleSelect(`method-${method.id}`, method.id)} 
                     key={method.id}>
-
+                     <a className='choosePaymentMethod__list_delete' onClick={handleDelete}>Eliminar</a>
                     <input 
                       type="radio" 
                       name="radio" 
