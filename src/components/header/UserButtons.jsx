@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 //redux
 import { useSelector } from "react-redux";
 //router
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 //styles
 import "./scss/userButtons.scss";
 //icons
@@ -31,13 +31,36 @@ const UserButtons = () => {
   );
 };
 
+
 const UserButtonsIsLoggin = ({ userInfo }) => {
   const user = userInfo.user;
-  
+  const [ menuOpen , setMenuOpen ] = useState(false)
+  const navigate = useNavigate()
+ 
+  const handleOpenMenu =()=>{
+    setMenuOpen(prev=>!prev)
+  }
+  const handleSelectList =(e)=>{
+    const menuValue = e.target.innerText
+    if(menuValue === 'Historial'){
+      setMenuOpen(false)
+      navigate('/user/history')
+    }
+   
+  }
+  const menuArr = ['Perfil', 'Historial', 'Configuraciones']
   return (
     <>
-      <div className="userButtons__panel">
+      <div onClick={handleOpenMenu} className="userButtons__panel">
         <img src={userIcon} alt="alt" />
+
+        {menuOpen && 
+        <ul onClick={(e)=>e.stopPropagation()} className="userButtons__menu">
+          {menuArr.map((word, i)=>(
+            <li key={i} onClick={handleSelectList}>{word}</li>
+          ))}
+        </ul>
+        }
       </div>
       {(user.superAdminUser || user.adminUser) && (
         <>
