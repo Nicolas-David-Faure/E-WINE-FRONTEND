@@ -15,11 +15,8 @@ const History = () => {
     sortByNumCart[numCart].push(element)
   });
   
-
-
   let keysOfCart =  Object.keys(sortByNumCart)
 
-  
   useEffect(()=>{
     axios.get('/api/history/'+user?.email)
     .then(res=> {
