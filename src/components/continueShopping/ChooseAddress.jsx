@@ -46,7 +46,6 @@ const ChooseAddress = ( { setContinue } ) => {
       {editOrAddNewAddress ? 
       
       <FormAddress user={user} setEditOrAddNewAddress={setEditOrAddNewAddress}/>
-
       :
       <ul className='chooseAddress__cont_list'>
 
@@ -74,7 +73,6 @@ const ChooseAddress = ( { setContinue } ) => {
               <p>Ciudad: {address.city}</p>
               <p>Calle: {address.address} {address.addressNum}</p>
             </div>
-            
           </li>
         )
         })}
@@ -89,7 +87,6 @@ const ChooseAddress = ( { setContinue } ) => {
           if(!checkRadio){
             alert('debes elegir una opción')
           }else{
-
             setContinue(true)
           }
         }}
@@ -127,7 +124,6 @@ const FormAddress = ( { user , setEditOrAddNewAddress} )=> {
       setEditOrAddNewAddress(false)
     })
     .catch(err=>console.error(err))
-
   }
   
   return (
@@ -141,7 +137,8 @@ const FormAddress = ( { user , setEditOrAddNewAddress} )=> {
             placeholder='Código postal' 
             id='postal_code' 
             type="number" 
-            name="postal_code" 
+            name="postal_code"
+            minLength={4} 
             required/>
         </div>
 
@@ -153,7 +150,8 @@ const FormAddress = ( { user , setEditOrAddNewAddress} )=> {
               onChange={handleChange} 
               placeholder='Calle' 
               id='address' type="text" 
-              name="address" 
+              name="address"
+              minLength={5} 
               required/>
           </div>
 
@@ -170,14 +168,15 @@ const FormAddress = ( { user , setEditOrAddNewAddress} )=> {
         </div>
 
         <div className='chooseAddress__form_apartment'>
-          <label htmlFor="apartment">Piso (opcional)</label>
+          <label htmlFor="apartment">Piso</label>
           <input 
             onChange={handleChange} 
             placeholder='Piso (opcional)' 
             id='apartment' 
-            type="text" 
+            type="number"
+            
             name="apartment" 
-            required/>
+            />
         </div>
 
         <div className='chooseAddress__form_locality'>
@@ -188,23 +187,25 @@ const FormAddress = ( { user , setEditOrAddNewAddress} )=> {
               placeholder='Ciudad' 
               id='city' 
               type="text" 
+              minLength={4}
               name="city" 
               required/>
           </div>
 
-            
           <div>
             <label htmlFor="province">Provincia</label>
             <input 
               onChange={handleChange} 
               placeholder='Provincia' 
               id='province' 
-              type="text" 
+              type="text"
+              minLength={4} 
               name="province" />
           </div>
         </div>
+
         <label htmlFor="more_data">Más informacion</label>
-        <textarea name="more_data" id='more_data' cols="30" rows="10"></textarea>
+        <textarea name="more_data" id='more_data' minLength={50} cols="30" rows="10"></textarea>
 
         <button type="submit">Añadir</button>
       </form>

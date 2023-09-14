@@ -127,7 +127,8 @@ return (
       <input onChange={handleChange} 
         name='fullname' 
         id='choosePaymentMethod__fullname' 
-        type="text" 
+        type="text"
+        minLength={6}
         value={paymentMethodInfo.fullname}
         required
         />
@@ -138,7 +139,9 @@ return (
       <input onChange={handleChange} 
         name='card_number'
         id='choosePaymentMethod__card_number'  
-        type="number" 
+        type="number"
+        minLength={16}
+        maxLength={16}
         value={paymentMethodInfo.card_number}
         required
         />
@@ -150,6 +153,8 @@ return (
         name='expire' 
         id='choosePaymentMethod__expire' 
         type="text" 
+        maxLength={5}
+
         value={paymentMethodInfo.expire}
         required
         />
@@ -159,8 +164,9 @@ return (
       <label htmlFor="choosePaymentMethod__cvv">CVV:</label>
       <input onChange={handleChange} 
         name='cvv' 
-        id='choosePaymentMethod__cvv' t
-        ype="number" 
+        id='choosePaymentMethod__cvv' 
+        type="number"
+        maxLength={3} 
         value={paymentMethodInfo.cvv}
         required
         />
@@ -171,7 +177,9 @@ return (
       <input onChange={handleChange} 
         name='dni' 
         id='choosePaymentMethod__dni' 
-        type="number" 
+        type="number"
+        maxLength={8}
+        minLength={7} 
         value={paymentMethodInfo.dni}
         required
         />
