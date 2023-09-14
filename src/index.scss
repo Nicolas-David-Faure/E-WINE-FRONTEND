@@ -39,12 +39,10 @@ body {
   height: 450vh;
   min-width: 320px;
 }
-
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -55,24 +53,11 @@ button {
   background-color: #662626;
   cursor: pointer;
   transition: border-color 0.25s;
-  
+  color: rgba(255, 255, 255, 0.575);
 }
 button:hover {
   border-color:rgba(255, 255, 255, 0.37);
 }
 button:focus{
    border: 1px solid rgba(252, 252, 252, 0.301);
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
