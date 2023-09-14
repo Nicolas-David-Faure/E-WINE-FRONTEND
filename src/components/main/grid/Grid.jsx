@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 const Grid = () => {
   const [wines, setWines] = useState([]);
   const wineFounded = useSelector((store) => store.searchReducer.searched);
-  console.log(wineFounded);
+  
 
   useEffect(() => {
     axios
