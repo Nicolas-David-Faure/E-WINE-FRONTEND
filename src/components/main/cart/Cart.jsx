@@ -40,11 +40,12 @@ const Cart = () => {
   useEffect(() => {
     axios
       .get(`/api/cart/${user?.email}`)
-      .then(({ data }) => setCart(data))
+      .then(({ data }) => {
+        setCart(data)})
       .catch((err) => console.error(err));
     
   }, [update]);
-  
+    
   return (
     <div className="cart__main">
       <h1 className="cart__title">Carrito de compras</h1>
@@ -63,7 +64,7 @@ const Cart = () => {
         <div className="cart__cont_amount">
           <div className="cart__btn_continue">
             <button 
-              key={1234658989456}
+              
               id="cart__btn_continue"
               onClick={handleBuy} >Continuar compra</button>
           </div>

@@ -6,7 +6,7 @@ export default function addToCartThunk({
   id,
   email,
   price ,
-  incrementOrDecrement,
+  incrementOrDecrement = true,
 }) {
   return async (dispatch) => {
     
