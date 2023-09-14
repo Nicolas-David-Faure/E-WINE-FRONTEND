@@ -8,6 +8,7 @@ import "./scss/userButtons.scss";
 //icons
 import cartIcon from "../../assets/icons/cart.svg";
 import userIcon from "../../assets/icons/user.svg";
+import panelAdminIcon from "../../assets/icons/panelAdmin.svg"
 import Logout from "../auth/Logout";
 const UserButtons = () => {
   const userInfo = useSelector((store) => store.userReducer);
@@ -31,16 +32,29 @@ const UserButtons = () => {
 };
 
 const UserButtonsIsLoggin = ({ user }) => {
+
   return (
     <>
       <div className="userButtons__panel">
         <img src={userIcon} alt="alt" />
       </div>
-      <Link to="/user/cart">
-        <div className="userButtons__panel">
-          <img src={cartIcon} alt="cart" />
-        </div>
-      </Link>
+      {(user.isSuperAdmin || user.isAdmin) && (
+        <>
+          <Link to="/user/panelAdmin">
+            <div className="userButtons__panel">
+              <img src={panelAdminIcon} alt="panelAdmin"/>
+            </div>
+          </Link>
+        </>
+      )} {!user.isSuperAdmin && (
+        <>
+          <Link to="/user/cart">
+            <div className="userButtons__panel">
+              <img src={cartIcon} alt="cart" />
+            </div>
+          </Link>
+        </>
+      )}
       <Logout />
     </>
   );
