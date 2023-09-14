@@ -8,6 +8,7 @@ import "./scss/userButtons.scss";
 //icons
 import cartIcon from "../../assets/icons/cart.svg";
 import userIcon from "../../assets/icons/user.svg";
+import panelAdminIcon from "../../assets/icons/panelAdmin.svg";
 import Logout from "../auth/Logout";
 const UserButtons = () => {
   const userInfo = useSelector((store) => store.userReducer);
@@ -24,17 +25,18 @@ const UserButtons = () => {
           </Link>
         </>
       ) : (
-        <UserButtonsIsLoggin user={userInfo} />
+        <UserButtonsIsLoggin userInfo={userInfo} />
       )}
     </div>
   );
 };
 
-const UserButtonsIsLoggin = ({ user }) => {
+
+const UserButtonsIsLoggin = ({ userInfo }) => {
+  const user = userInfo.user;
   const [ menuOpen , setMenuOpen ] = useState(false)
   const navigate = useNavigate()
  
-
   const handleOpenMenu =()=>{
     setMenuOpen(prev=>!prev)
   }
@@ -46,7 +48,6 @@ const UserButtonsIsLoggin = ({ user }) => {
     }
    
   }
-
   const menuArr = ['Perfil', 'Historial', 'Configuraciones']
   return (
     <>
@@ -61,11 +62,24 @@ const UserButtonsIsLoggin = ({ user }) => {
         </ul>
         }
       </div>
-      <Link to="/user/cart">
-        <div className="userButtons__panel">
-          <img src={cartIcon} alt="cart" />
-        </div>
-      </Link>
+      {(user.superAdminUser || user.adminUser) && (
+        <>
+          <Link to="/user/panelAdmin">
+            <div className="userButtons__panel">
+              <img src={panelAdminIcon} alt="panelAdmin" />
+            </div>
+          </Link>
+        </>
+      )}{" "}
+      {!user.superAdminUser && (
+        <>
+          <Link to="/user/cart">
+            <div className="userButtons__panel">
+              <img src={cartIcon} alt="cart" />
+            </div>
+          </Link>
+        </>
+      )}
       <Logout />
     </>
   );
