@@ -6,9 +6,9 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
-  background-color: $color2;
+  background-color: transparent;
   font-size: 1.2rem;
-
+  border-bottom: 1px solid rgba(255, 255, 255, 0.178);
   a{
     user-select: none;
     color: $color6;

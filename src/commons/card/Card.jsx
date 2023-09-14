@@ -16,6 +16,7 @@ const Card = ({ producto }) => {
     nagivate('/singleProduct/'+ producto.id)
   }
   const isMajorOf35 = producto.name.length > 35 ? true : false;
+  
   return (
     <motion.div
     onClick={handleClick} 

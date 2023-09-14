@@ -2,16 +2,38 @@
 
 .header__main{
   width: 100%;
-  height: 4rem;
-  background-color: $color1;
+  height: 8rem;
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: space-around;
 
-  div{
-    .header__logo{
-      width: 50px;
-      height: 50px;
+  .header__logo{
+    color: rgb(141, 26, 26);
+    padding: 10px 40px;
+    border-radius: 6px;
+    width: 17rem;
+    text-align: start;
+    position: relative;
+
+    h1{
+      text-shadow: -2px 3px 2px rgb(151, 44, 44);
+    }
+    .header__icon{
+      width: 30px;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    .cup_wine{
+      right: 20px;
+      top: 10px;
+      transform: rotate(-30deg);
+    }
+    .bottle_wine{
+      top: -55px;
+      right: 95px;
+      transform: rotate(100deg);
     }
   }
 }

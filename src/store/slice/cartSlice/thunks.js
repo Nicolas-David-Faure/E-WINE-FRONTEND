@@ -6,9 +6,10 @@ export default function addToCartThunk({
   id,
   email,
   price ,
-  incrementOrDecrement,
+  incrementOrDecrement = true,
 }) {
   return async (dispatch) => {
+    
     const body = {
       email,
       price,
@@ -20,6 +21,7 @@ export default function addToCartThunk({
       .post(`/api/cart/${id}`, body)
       .then((res) =>res)
       .catch((err) => console.error(err));
-     dispatch(updateCart())
+     
+      dispatch(updateCart())
   };
 }

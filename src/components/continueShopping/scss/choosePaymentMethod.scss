@@ -1,0 +1,152 @@
+@import '../../../assets/sass/variants';
+
+.choosePaymentMethod__{
+  
+  &main{
+    width:56%;
+    height: 98%;
+    background-color: #000000c7;
+    border-radius: 6px 0 0 6px;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.562);
+    position: relative;
+
+    h2{
+      margin: 1.5rem 0;
+    }
+
+
+    
+    a{
+      position: absolute;
+      bottom: 3rem;
+      left: 3rem;
+
+      &:hover{
+        color: aliceblue;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &continue_btn{
+    position: absolute;
+    bottom: 3rem;
+      right: 3rem;
+  }
+
+  &form{
+    width: 60%;
+    height: 60%;
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+    text-align: start;
+    justify-content: space-evenly;
+    position: relative;
+    padding: 20px;
+    
+    a{
+      position: absolute;
+      top: -10px;
+      left: -40px;
+
+      &:hover{
+        color: aliceblue;
+        cursor: pointer;
+      }
+    }
+    input{
+      width: 12rem;
+      height: 2rem;
+      outline: none;
+      text-align: center;
+    }
+  
+    div{
+      display: flex;
+      flex-direction: column;
+     
+    }
+  
+  }
+
+  &cont_list{
+    list-style: none;
+    width: 95%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+   
+    overflow-y: auto;
+    .method__selected{
+      box-shadow: 0px 1px 10px rgb(196, 146, 146);
+      }
+    .choosePaymentMethod__list{
+      width: 90%;
+      color: rgba(0, 0, 0, 0.774);
+      background-color: $color4;
+      border-radius: 6px;
+      margin: 10px auto;
+      position: relative;
+      display: flex;
+
+      min-height: 6rem;
+      padding: 10px;
+      justify-content: center;
+      cursor: pointer;
+      
+      &_delete{
+        position: absolute;
+        top: 5px;
+        left: 89%;
+        color: #ffffff60;
+      }
+      input{
+        position: absolute;
+        top: 8px;
+        left: 5px;
+        width: 20px;
+        cursor: pointer;
+      }
+
+      .choosePaymentMethod__list_div{
+        width: 40%;
+        padding: 5px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: start;
+       
+
+        p:nth-child(1){
+          margin-bottom: 10px;
+        }
+        p:nth-child(2){
+          margin-top: 10px;
+        }
+      }
+    }
+    a{
+      color: white;
+      cursor: pointer;
+      text-align: start;
+     
+      margin-left: 5px;
+      &:hover{
+        color: rgb(174, 188, 201);
+      }
+    }
+  }
+  
+  &back{
+    position: absolute;
+    top: 3rem;
+    left: 0;
+  }
+}
+
