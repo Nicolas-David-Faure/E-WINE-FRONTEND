@@ -1,13 +1,15 @@
 @import '../../../assets/sass/variants';
 .search__main{
-  background-color: $color7;
+
+  background-color: rgb(141, 26, 26);
   border-radius: 3px;
   width: 18rem;
   height: 3rem;
   display: flex;
+  flex-direction: row-reverse;
   align-items: center;
   justify-content: space-evenly;
-  
+  box-shadow: -2px 2px 3px rgb(161, 31, 31);
 
   .search__cont_btn{
     width: 50px;
@@ -35,9 +37,10 @@
     border: none;
     text-align: center;
     font-size: 1.2rem;
+    
   }
 
   input:focus ,input:hover {
-    box-shadow: 1px 2px 10px rgb(231, 38, 38);
+    box-shadow: -1px 2px 10px rgb(161, 31, 31);
   }
 }

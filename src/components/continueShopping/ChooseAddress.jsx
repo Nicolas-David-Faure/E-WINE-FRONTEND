@@ -16,6 +16,7 @@ const ChooseAddress = ( { setContinue } ) => {
   const [ addressInfo , setAddressInfo ] = useState(null)
   const [ editOrAddNewAddress , setEditOrAddNewAddress ] = useState(false)
   const [checkRadio , setCeckRadio] = useState(null)
+  const [update , setUpdate ] = useState(false)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -25,8 +26,10 @@ const ChooseAddress = ( { setContinue } ) => {
     dispatch(addSelectedAddress(addressFiltered[0]))
   }
 
-  const handleDelete =()=>{
-    console.log('delete');
+  const handleDelete = ( id ) =>{
+    axios.delete('/api/checkout/address/'+id)  
+    .then((res)=>setUpdate(!update))
+    .catch(err=>console.error(err))
   }
 
   useEffect(()=>{
@@ -37,7 +40,7 @@ const ChooseAddress = ( { setContinue } ) => {
       })
       .catch(err=>console.error(err))
     }
-  },[editOrAddNewAddress])
+  },[editOrAddNewAddress , update])
   
   return (
     <section className='chooseAddress__main'>
@@ -49,14 +52,14 @@ const ChooseAddress = ( { setContinue } ) => {
       :
       <ul className='chooseAddress__cont_list'>
 
-        {addressInfo?.length > 0 && addressInfo?.map(address=>{
+        {addressInfo?.length > 0 ? addressInfo?.map(address=>{
           
           return (
           <li  
             className={checkRadio === `chooseAddres-${address.id}` ? 'chooseAddres__selected chooseAddress__list' : 'chooseAddress__list'}
             onClick={()=>handleSelect(`chooseAddres-${address.id}` , address.id)} 
             key={address.id}>
-              <a className='chooseAddress__list_delete' onClick={handleDelete}>Eliminar</a>
+              <a className='chooseAddress__list_delete' onClick={()=>handleDelete(address.id)}>Eliminar</a>
             <input 
              type="radio" 
              name="radio" 
@@ -75,7 +78,7 @@ const ChooseAddress = ( { setContinue } ) => {
             </div>
           </li>
         )
-        })}
+        }): <h5>Debes añadir una dirección para continuar...</h5>}
         
       </ul>
       
@@ -114,10 +117,18 @@ const FormAddress = ( { user , setEditOrAddNewAddress} )=> {
     const inputValue = event.target.value; 
     setAddressInfo({ ...addressInfo, [inputName]: inputValue });
   };
+  // let btnSubmit = document.getElementById('chooseAddress__btn_submit')
+
+  // if(btnSubmit){
+  //   btnSubmit.disabled = true;
+  //   const userValues = Object.values(addressInfo);
+  //   const verify = userValues.every((value) => value !== "");
+  //   btnSubmit.disabled = !verify;
+  // }
 
   const handleSubmit =(e)=>{
     e.preventDefault()
-    console.log(addressInfo)
+    
     axios.post('/api/checkout/address/'+user?.email,addressInfo)
     .then(res=>{
       setAddressInfo(cleanStateObj)
@@ -125,7 +136,6 @@ const FormAddress = ( { user , setEditOrAddNewAddress} )=> {
     })
     .catch(err=>console.error(err))
   }
-  
   return (
     <form className='chooseAddress__form' onSubmit={handleSubmit}>
         <a onClick={()=>setEditOrAddNewAddress(false)}>Volver</a>
@@ -205,9 +215,9 @@ const FormAddress = ( { user , setEditOrAddNewAddress} )=> {
         </div>
 
         <label htmlFor="more_data">Más informacion</label>
-        <textarea name="more_data" id='more_data' minLength={50} cols="30" rows="10"></textarea>
+        <textarea name="more_data" id='more_data'cols="30" rows="10"></textarea>
 
-        <button type="submit">Añadir</button>
+        <button id='chooseAddress__btn_submit' type="submit">Añadir</button>
       </form>
   )
 }

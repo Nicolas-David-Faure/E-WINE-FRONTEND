@@ -31,8 +31,14 @@ const ShoppingMenu = ( {  wine  } ) => {
     }
   }
   const handleBuy =()=>{
+    const body = {
+      id: wine?.id,
+      email: user?.email,
+      price: wine?.price,
+ }
     if(user?.email){
-      console.log('comprar')
+      dispatch(addToCartThunk(body))
+      navigate('/user/cart/continuebuy')
     }else{
       navigate('/auth?type=login')
     }
