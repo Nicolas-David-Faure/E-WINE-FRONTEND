@@ -7,7 +7,7 @@ const DeleteProduc = ({productId, onDeleteProduct}) => {
     axios
       .delete(`/api/wines/${productId}`)
       .then((res) => {
-        
+
         onDeleteProduct(productId)
       })
       .catch(() => alert("Se ha producido un error al eliminar un producto."));

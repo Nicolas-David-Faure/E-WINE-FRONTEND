@@ -6,7 +6,6 @@ const EditProduct = ({ productId, onEditProduct, productData }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     axios
       .put(`/api/wines/${productId}`, editedProduct)
       .then((result) => {
