@@ -25,14 +25,13 @@ const Card = ({ producto }) => {
     <motion.div
     onClick={handleClick} 
     layout
-    initial={{ opacity: 0  , scale:0.7}}
+    initial={{ opacity: 0 }}
     animate={
       {
       opacity:1 ,
       transition: 
                 { 
-                type:'spring',
-                stiffness:100,
+                
                 duration:.3
                 },
       scale:1}}
