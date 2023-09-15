@@ -31,11 +31,13 @@ const SingleProduct = ( ) => {
     <article className='singleProduct__main'>
 
       {
-        wine &&
+        wine ?
         <>
           <ProductView wine={ wine } />
           <ProductReview />
         </>
+        :
+       <img src="https://cdn.dribbble.com/users/1241808/screenshots/2864457/wine404v2.gif" alt="wine 404"/>
       }
     </article>
   )
