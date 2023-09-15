@@ -16,6 +16,8 @@ const ShoppingMenu = ( {  wine  } ) => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
+  
+
   const handleAddToCart = ()=>{
     if(user?.email){
       const body = {
