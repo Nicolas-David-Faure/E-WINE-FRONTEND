@@ -1,9 +1,13 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+//styles
+import './scss/adminPrinc.scss'
+//axios
+import axios from "axios";
+//components
 import AddAdmin from "./AddAdmin";
 import RemoveAdmin from "./RemoveAdmin";
 import DeleteUser from "./DeleteUser";
-import "../scss/adminPrinc.scss";
+
 
 const AddYDelAdmin = () => {
   const [users, setUsers] = useState(null);

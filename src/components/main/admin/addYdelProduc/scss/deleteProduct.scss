@@ -1,0 +1,29 @@
+/* DeleteProductForm.scss */
+
+.main__containerDelete {
+  float: right; /* Muestra el componente de eliminación a la derecha */
+  width: 50%; /* Divide el ancho de la página en dos columnas */
+  padding: 20px;
+  box-sizing: border-box; /* Incluye el padding en el ancho total */
+
+  height: 100vh;
+  margin-top: 20px;
+  background-color: rgb(104, 19, 19);
+
+  ul{
+    height: 80%;
+    overflow-y: auto;
+    background-color: rgb(212, 32, 32);
+
+  li{
+    width: 100%;
+    height: 5rem;
+    background-color: rgba(184, 139, 139, 0.678);
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+  }
+}

@@ -30,8 +30,8 @@ const AddProduc = ({ onProductAdd }) => {
       .catch(() => alert("Se ha producido un error al agregar un producto."));
   };
   return (
-    <div>
-      <h2>Agregar Nuevo Producto</h2>
+    <div className="addProduct__main">
+      
       <form onSubmit={handleSubmit}>
         <div>
           <label>Nombre del Producto:</label>
@@ -52,6 +52,15 @@ const AddProduc = ({ onProductAdd }) => {
           />
         </div>
         <div>
+          <label>Imagen:</label>
+          <input
+            type="text"
+            name="image"
+            value={productData.image}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div>
           <label>Bodega:</label>
           <input
             type="text"
@@ -60,14 +69,7 @@ const AddProduc = ({ onProductAdd }) => {
             onChange={handleInputChange}
           />
         </div>
-        <div>
-          <label>Descripción:</label>
-          <textarea
-            name="description"
-            value={productData.description}
-            onChange={handleInputChange}
-          />
-        </div>
+        
         <div>
           <label>Tipo de vino:</label>
           <input
@@ -86,13 +88,15 @@ const AddProduc = ({ onProductAdd }) => {
             onChange={handleInputChange}
           />
         </div>
+        
         <div>
-          <label>Imagen:</label>
-          <input
-            type="text"
-            name="image"
-            value={productData.image}
+          <label>Descripción:</label>
+          <textarea
+            name="description"
+            value={productData.description}
             onChange={handleInputChange}
+            cols={10}
+            rows={10}
           />
         </div>
         <div>
