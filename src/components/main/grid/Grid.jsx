@@ -13,20 +13,22 @@ const Grid = () => {
   const [wines, setWines] = useState([]);
   const wineFounded = useSelector((store) => store.searchReducer.searched);
   const [ page , setPage ] = useState(1)
-  
-  
-  
-  console.log(wineFounded)
+  const [totalPages, setTotalPages] = useState(null)
 
   useEffect(() => {
- 
     axios
       .get("/api/wines/page/"+page)
       .then((result) => result.data)
-      .then((data) => setWines(data))
+      .then((data) => {
+        const numOfPages = data.pop()
+        setTotalPages(numOfPages.total)
+        setWines(data)
+      })
       .catch((err) => console.error("error", err));
   }, [page]);
+
   const pages = [1,2,3,4,5,6,7,8,9,10]
+  
   return (
     <div className="grid__main">
 
@@ -43,7 +45,7 @@ const Grid = () => {
             {
             pages?.map((num, i)=>{
               if(wines){
-                  if(num > wines.at(-1)?.total){
+                  if(num > totalPages){
                   return
                   }
               }
