@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 //styles
 import "./scss/removeAdmin.scss";
-
+import firstLetterCapitalized from '../../../../utils/firstLetterCapitalized'
 const RemoveAdmin = ({ revokeAdmin, users }) => {
   const [selectedUser, setSelectedUser] = useState(null);
 
@@ -27,11 +27,11 @@ const RemoveAdmin = ({ revokeAdmin, users }) => {
         <option value="">Selecciona un usuario</option>
         {users?.map((user) => (
           <option key={user.id} value={user.id}>
-            {user.name}
+            {firstLetterCapitalized(user.name)}
           </option>
         ))}
       </select>
-      <button onClick={handleRemove}>Eliminar como Administrador</button>
+      <button onClick={handleRemove}>Revocar</button>
     </div>
   );
 };
