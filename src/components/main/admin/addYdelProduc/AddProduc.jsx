@@ -90,7 +90,7 @@ const AddProduc = ({ onProductAdd }) => {
         </div>
         
         <div>
-          <label>Descripción:</label>
+          <label className="addproduct_label__textarea">Descripción:</label>
           <textarea
             name="description"
             value={productData.description}
