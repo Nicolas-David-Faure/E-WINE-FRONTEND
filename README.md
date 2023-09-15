@@ -19,4 +19,9 @@ Para inicializar el proyecto debes seguir estos pasos.
 3-Desde el repositorio de front-end
   a-npm run dev -> para inicializar el server de front
 
-  --->Colaboradores: Maria Florencia Matinez, Ivan Lucana, Marcos Solis, Nicolás David Faure.  
+  --->Colaboradores: 
+  
+  Maria Florencia Matinez : https://github.com/flormartinez92
+  Ivan Lucana             : https://github.com/IvoDev28
+  Marcos Solis            : https://github.com/marcossolis07
+  Nicolás David Faure.    : https://github.com/Nicolas-David-Faure
