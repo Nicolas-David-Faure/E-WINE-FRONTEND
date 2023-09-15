@@ -1,8 +1,22 @@
-# React + Vite
+E-Wine > E-commerce - Nicho de vinos - compra de vinos - 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+Para inicializar el proyecto debes seguir estos pasos.
+1 -clonar el repositorio de back-end y de front-end (Se recomienda crear una carpeta llamada E-Wine y clonar los repos adentro)
+  a-Back-End: https://github.com/Nicolas-David-Faure/E-Wine-BackEnd
+  b-Front-End: https://github.com/Nicolas-David-Faure/E-WINE-FRONTEND
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2-Desde el repositorio de backend
+  a-npm start -> para inicializar el server
+  b-Crear base de datos psql llamada ewine
+  c-Desde el archivo server.js descomentar las lineas 13 y 14 para sedear el super admin y los     productos  Estas son las lineas:
+                                   // seederWine();
+                                   // seederSuperAdminUser();
+  d-Email y contraseña del super admin: 
+                                  Email: ewine.super@gmail.com
+                                  Password: ewine1234
+
+3-Desde el repositorio de front-end
+  a-npm run dev -> para inicializar el server de front
+
+  --->Colaboradores: Maria Florencia Matinez, Ivan Lucana, Marcos Solis, Nicolás David Faure.  
