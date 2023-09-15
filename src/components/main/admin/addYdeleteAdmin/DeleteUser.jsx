@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "../scss/deleteAdmin.scss";
+//styles
+import "./scss/deleteAdmin.scss";
 
 const DeleteUser = ({ deleteUser, users }) => {
   const [selectedUser, setSelectedUser] = useState(null);

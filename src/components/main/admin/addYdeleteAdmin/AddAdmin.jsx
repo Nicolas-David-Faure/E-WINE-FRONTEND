@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "../scss/addAdmin.scss";
+//styles
+import "./scss/addAdmin.scss";
 
 const AddAdmin = ({ makeAdmin, users }) => {
   const [selectedUser, setSelectedUser] = useState(null);

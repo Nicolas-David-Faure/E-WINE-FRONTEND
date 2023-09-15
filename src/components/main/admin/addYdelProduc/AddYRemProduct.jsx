@@ -2,12 +2,11 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import AddProduc from "./AddProduc";
 import DeleteProduc from "./DeleteProduc";
-import "../scss/addProduct.scss";
-import "../scss/deleteProduct.scss";
+import "./scss/addProduct.scss";
+import "./scss/deleteProduct.scss";
 
 const AddYRemProduct = () => {
   const [winesProduct, setWinesProduct] = useState(null);
-  //const [updateWine, setUpdateWine] = useState(false);
 
   const handleProductAdded = (newProduct) => {
     setWinesProduct([...winesProduct, newProduct]);
@@ -24,7 +23,7 @@ const AddYRemProduct = () => {
     axios
       .get("/api/wines")
       .then((res) => {
-        console.log(res.data);
+        
         setWinesProduct(res.data);
       })
       .catch(() => alert("Se ha producido un error al cargar los productos"));
@@ -33,7 +32,7 @@ const AddYRemProduct = () => {
   return (
     <div>
       <div className="main__containerDelete">
-        <h1>Lista de Productos</h1>
+        <h2>Lista de Productos</h2>
         <ul>
           {winesProduct?.map((product) => (
             <li key={product.id}>
@@ -47,6 +46,7 @@ const AddYRemProduct = () => {
         </ul>
       </div>
       <div className="main__containerAdd">
+      <h2>Agregar Nuevo Producto</h2>
         <AddProduc onProductAdd={handleProductAdded} />
       </div>
     </div>
