@@ -13,6 +13,10 @@ const Card = ({ producto }) => {
 
   const nagivate = useNavigate()
   const handleClick =()=>{
+    window.scrollTo({
+      top: 120,
+    
+    })
     nagivate('/singleProduct/'+ producto.id)
   }
   const isMajorOf35 = producto.name.length > 35 ? true : false;
@@ -21,13 +25,16 @@ const Card = ({ producto }) => {
     <motion.div
     onClick={handleClick} 
     layout
-    initial={{ opacity: 0 , y:100 , scale:0.5}}
+    initial={{ opacity: 0  , scale:0.7}}
     animate={
       {
-      opacity:[1] ,
-      y:0,
-      transition: { type:'spring',
-      duration:.5} ,
+      opacity:1 ,
+      transition: 
+                { 
+                type:'spring',
+                stiffness:100,
+                duration:.3
+                },
       scale:1}}
       className="card__main">
       <figure>

@@ -15,6 +15,7 @@ const Search = () => {
 
   const handleChange = (e) => {
     const data = e.target.value;
+
     setSearch(data);
   };
 
@@ -25,6 +26,7 @@ const Search = () => {
     axios
       .get(`/api/search?query=${search}`)
       .then((response) => {
+        setSearch('')
         dispatch(changeSearch(response.data));
       })
       .catch(() => alert("No tenemos ese vino en nuestro catalogo"));

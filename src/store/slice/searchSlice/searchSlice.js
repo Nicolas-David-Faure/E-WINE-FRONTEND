@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   searched: null,
+  
 };
 
 export const searchSlice = createSlice({

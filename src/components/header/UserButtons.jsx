@@ -59,6 +59,7 @@ const UserButtonsIsLoggin = ({ userInfo }) => {
           {menuArr.map((word, i)=>(
             <li key={i} onClick={handleSelectList}>{word}</li>
           ))}
+           <Logout />
         </ul>
         }
       </div>
@@ -80,24 +81,10 @@ const UserButtonsIsLoggin = ({ userInfo }) => {
           </Link>
         </>
       )}
-      <Logout />
+     
     </>
   );
 };
 
 export default UserButtons;
 
-/*
-<NavLink 
-              className={( { isActive, isPending } ) =>
-              isPending ? "pendingNav" : isActive ? "activeNav" : ""}
-              to={'/auth_panel?type=register'}>
-                <button>Registrate</button>
-            </NavLink>
-            <NavLink 
-              className={( { isActive, isPending } ) =>
-              isPending ? "pendingNav" : isActive ? "activeNav" : ""}
-              to={'/auth_panel?type=login'}>
-                <button>Ingresar</button>
-            </NavLink>
-*/

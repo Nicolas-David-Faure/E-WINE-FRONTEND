@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 //axios
 import axios from "axios";
 //router
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 //styles
 import "./scss/navBar.scss";
 //framer-motion
@@ -17,7 +17,7 @@ const NavBar = () => {
   const [ category , setCategory ] = useState(null)
 
   const dispatch = useDispatch()
-
+  const navigate = useNavigate()
  
   const handleActiveNav = () => { //active a setTimeOut whith some delay before define setIsHover to true 
    
@@ -36,7 +36,7 @@ const NavBar = () => {
     axios
       .get(`/api/search?query=${word}`)
       .then((response) => {
-
+        navigate('/')
         dispatch(changeSearch(response.data));
       })
       .catch(() => alert("No tenemos ese vino en nuestro catalogo"));

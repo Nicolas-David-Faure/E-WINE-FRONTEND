@@ -15,6 +15,7 @@ const ChoosePaymentMethod = ( {setContinue}) => {
   const user = useSelector(store=>store.userReducer.user)
   const [ paymentMethods , setPaymentMethods ] = useState(null)
   const [ activeFormPaymentMethod , setActiveFormPaymentMethod ] = useState(false)
+  const [update , setUpdate ] = useState(false)
   const [checkRadio , setCeckRadio] = useState(null)
   const dispatch = useDispatch()
 
@@ -28,16 +29,21 @@ const ChoosePaymentMethod = ( {setContinue}) => {
     setContinue(false)
   }
 
-  const handleDelete =()=>{
-    console.log('delete');
+  const handleDelete =( id )=>{
+    axios.delete('/api/checkout/payment/'+id)
+    .then(()=>{
+      setUpdate(!update)
+    })
+    .catch(err=>console.error(err))
   }
+
   useEffect(()=>{
      axios.get('/api/checkout/payment/'+user?.email)
     .then(({data})=>{
       setPaymentMethods(data)
     })
     .catch(err=>console.error(err))
-  },[activeFormPaymentMethod])
+  },[activeFormPaymentMethod, update])
   
   return (
     <section className='choosePaymentMethod__main'>
@@ -54,7 +60,7 @@ const ChoosePaymentMethod = ( {setContinue}) => {
                     className={checkRadio === `method-${method.id}` ? 'method__selected choosePaymentMethod__list' : 'choosePaymentMethod__list'}
                     onClick={()=>handleSelect(`method-${method.id}`, method.id)} 
                     key={method.id}>
-                     <a className='choosePaymentMethod__list_delete' onClick={handleDelete}>Eliminar</a>
+                     <a className='choosePaymentMethod__list_delete' onClick={()=>handleDelete(method.id)}>Eliminar</a>
                     <input 
                       type="radio" 
                       name="radio" 

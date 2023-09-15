@@ -6,19 +6,21 @@
 
 
   .userButtons__panel{
-    width: 50px;
+    
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
-    height: 50px;
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
     border: 1px solid transparent;
     transition: ease border .3s;
     cursor: pointer;
     position: relative;
+    transition: ease background-color .3s;
     img{
-      width: 40px;
-      height:40px;
+      width: 56px;
+      height:56px;
     }
 
 
@@ -27,8 +29,8 @@
       width: 15rem;
       height: auto;
       height: 15rem;
-      background-color: $color4;
-      top: 3.2rem;
+      background-color: rgb(141, 26, 26);
+      top: 4rem;
       list-style: none;
       padding: 5px;
       border-radius: 3px;
@@ -44,6 +46,7 @@
         place-content: center;
         user-select: none;
         border-radius: 3px;
+        margin: 5px 0;
         &:hover{
           background-color: rgba(44, 8, 8, 0.836);
         }
@@ -51,7 +54,8 @@
     }
   }
   .userButtons__panel:hover{
-    border: 1px solid rgb(204, 139, 139);
+    
+    background-color: rgba(75, 10, 10, 0.801);
   }
   
 }

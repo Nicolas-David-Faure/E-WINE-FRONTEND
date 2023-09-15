@@ -12,6 +12,7 @@ const reviewsArr = [
 const ProductReview = () => {
   return (
     <section className='productReview__main'>
+      <h2 >Reviews</h2>
       <ul>
         {reviewsArr.map(review=><ItemReview key={review.id} review={review}/>)}
       </ul>
