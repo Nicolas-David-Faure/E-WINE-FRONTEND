@@ -9,4 +9,17 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   
+
+
+  .grid__cont_page{
+    width: 80%;
+    margin: 10px auto;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+
+    .grid__page{
+      height: 50px;
+    }
+  }
 }

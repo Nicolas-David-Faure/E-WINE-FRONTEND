@@ -80,7 +80,7 @@ const NavBar = () => {
         className='navBar__dropdown'>
           {
           category &&
-          dataCategory[category].map(((word, i)=>{
+          dataCategory[category]?.map(((word, i)=>{
             
             return(
               <a onClick={()=>handleSubmit(word , category)} key={i}>{word}</a>
