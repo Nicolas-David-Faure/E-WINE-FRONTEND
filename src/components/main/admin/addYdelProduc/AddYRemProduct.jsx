@@ -1,10 +1,17 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+//axios
+import axios from "axios";
+//styles
+import "./scss/deleteProduct.scss";
+import "./scss/addProduct.scss";
+//components
 import AddProduc from "./AddProduc";
 import DeleteProduc from "./DeleteProduc";
-import "./scss/addProduct.scss";
-import "./scss/deleteProduct.scss";
 import EditProduct from "./EditProduct";
+//icons
+import editIcon from '../../../../assets/icons/edit.svg'
+//utils
+import truncateString from '../../../../utils/truncateString'
 
 const AddYRemProduct = () => {
   const [winesProduct, setWinesProduct] = useState(null);
@@ -39,20 +46,34 @@ const AddYRemProduct = () => {
   }, []);
 
   return (
-    <div>
+    <div className="main__addYrem_product__main">
       <div className="main__containerDelete">
         <h2>Lista de Productos</h2>
         <ul>
           {winesProduct?.map((product) => (
             <li key={product.id}>
-              {product.name}{" "}
-              <DeleteProduc
-                productId={product.id}
-                onDeleteProduct={handleProductDeleted}
-              />
-              <button onClick={() => setEditingProductData(product)}>
-                Editar
-              </button>
+              <img className="addAndDelete__product_image" src={product.image} alt={product.name} />
+             
+              <figcaption>
+                <div className="addAndDelete__product_divisor">
+                  <p>{truncateString(product.name, 40, true)}</p>
+                  
+                </div>
+                <div className="addAndDelete__product_divisor">
+                  <p>{product.winery}</p>
+                  <p>{product.wine_type}</p>
+                </div>
+              </figcaption>
+
+
+              <div className="main__container_btn">
+
+                <DeleteProduc
+                  productId={product.id}
+                  onDeleteProduct={handleProductDeleted}
+                />
+                <img src={editIcon} onClick={() => setEditingProductData(product)} />
+              </div>
             </li>
           ))}
         </ul>

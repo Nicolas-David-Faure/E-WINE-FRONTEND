@@ -1,29 +1,100 @@
 /* DeleteProductForm.scss */
 
 .main__containerDelete {
-  float: right; /* Muestra el componente de eliminación a la derecha */
-  width: 50%; /* Divide el ancho de la página en dos columnas */
-  padding: 20px;
-  box-sizing: border-box; /* Incluye el padding en el ancho total */
-
-  height: 100vh;
+  border-radius: 5px;
+  width: 45%;
+  padding: 10px;
+  height: 110vh;
   margin-top: 20px;
-  background-color: rgb(104, 19, 19);
-
+  background: rgb(140,15,4);
+  background: linear-gradient(0deg, rgba(140,15,4,1) 0%, rgba(66,3,7,1) 100%);
+  h2{
+    margin-bottom: 10px;
+    text-shadow: -2px 1px 3px rgb(177, 88, 88);
+  }
   ul{
-    height: 80%;
+    height: 90%;
     overflow-y: auto;
-    background-color: rgb(212, 32, 32);
+    
+    &::-webkit-scrollbar {
+      height: 10px;
+      width: 10px;
+    }
+     &::-webkit-scrollbar-thumb:active {
+      background-color: #791c15;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: #790d09;
+    }
+    &::-webkit-scrollbar-thumb {
+      
+      background-color: #740909;
+    }
+    &::-webkit-scrollbar-track:active {
+      background-color: #911a1a;
+    }
+     &::-webkit-scrollbar-track:hover {
+     background-color: #33333386;
+   }
+   &::-webkit-scrollbar-track {
+      
+      background-color: #33333350;
+      transition: all ease .3s;
+    }
 
+    
+    }
+    
   li{
-    width: 100%;
-    height: 5rem;
-    background-color: rgba(184, 139, 139, 0.678);
-    margin: 10px 0;
+    width: 90%;
+    height: 6rem;
+    background-color: rgba(8, 1, 1, 0.829);
+    border-radius: 3px;
+    box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.555);
+    margin: 10px auto;
     display: flex;
-    justify-content: space-between;
+    position: relative;
     align-items: center;
     padding: 0 20px;
+    color: rgba(255, 255, 255, 0.507);
+     img{
+      width: 50px;
+      border-radius: 3px;
+    }
+    figcaption{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      .addAndDelete__product_divisor{
+        width: 50%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        ;
+
+        p{
+          text-align: start;
+        }
+      }
+    }
+    .main__container_btn{
+      height: 100%;
+      display: flex;
+      flex-direction: column-reverse;
+      position: absolute;
+      right: 10px;
+      justify-content: space-between;
+      padding: 10px 0;
+      img{
+        width: 30px;
+        cursor: pointer;
+        
+
+      }
+    }
+    
+    
   }
-  }
+  
 }

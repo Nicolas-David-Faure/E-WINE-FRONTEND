@@ -1,50 +1,117 @@
 /* AddProductForm.scss */
 
-.main__containerAdd {
-  float: left; /* Muestra el formulario a la izquierda */
-  width: 50%; /* Divide el ancho de la página en dos columnas */
-  padding: 20px;
-  min-height:100vh;
-
-  background-color: rgb(104, 19, 19);
-  margin-top: 20px;
-  border: 1px solid black;
-
+.main__addYrem_product__main{
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-
+  justify-content: space-evenly;
+  height: 120vh;
+  .main__containerAdd {
+    width: 45%; 
+   
+    height:110vh;
+    background-color: rgb(104, 19, 19);
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    background: rgb(140,15,4);
+  background: linear-gradient(0deg, rgba(140,15,4,1) 0%, rgba(66,3,7,1) 100%);
+    h2{
+      margin: 10px 0;
+      text-shadow: -2px 1px 3px rgb(177, 88, 88);
+    }  
   .addProduct__main{
-    background-color: black;
-
-    width: 80%;
-    height: 90%;
-
-    padding: 20px;
-    form{
-      width: 100%;
-      height: 100%;
       
-      div{
+      border-radius: 5px;
+      width: 90%;
+      height: 90%;
+  
+      padding: 20px;
+      form{
+        width: 100%;
+        height: 100%;
+
         display: flex;
         flex-direction: column;
-
-        text-align: start;
-
-        input{
-          text-align: center;
-          height: 2rem;
+        justify-content: center;
+        align-items: center;
+        color: rgba(255, 255, 255, 0.507);
+        div{
+          display: flex;
+          flex-direction: column;
           width: 80%;
+          align-items: center;
+          
+          label{
+            width: 80%;
+          
+            text-align: start;
+            font-size: 1.2rem;
+          }
+          input{
+            text-align: center;
+            height: 2.6rem;
+            width: 80%;
+            outline: none;
+            margin: 5px auto;
+            border-radius: 3px;
+            outline: none;
+            border: none;
+            transition: ease all .3s;
+            text-align: center;
+            font-size: 1.2rem;
+            box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.555);
+            background-color: rgba(0, 0, 0, 0.486);
+            color: rgba(255, 255, 255, 0.507);
+            &:hover{
+              box-shadow: 2px 3px 10px rgba(180, 45, 45, 0.555);
+            }
+            &:focus{
+              box-shadow: 2px 3px 10px rgba(180, 45, 45, 0.555);
+            }
+          }
+  
+        }
+        .addproduct_label__textarea{
+          
+          width: 100%;
+        }
+        textarea{
+          height: 7rem;
+          padding: 10px;
+          width: 100%;
           outline: none;
-          margin: 5px auto;
-          &:focus, &:hover{
-            box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.404);
+          background-color: rgba(0, 0, 0, 0.486);
+          border: none;
+          border-radius: 5px;
+          font-size: 1.2rem;
+          transition: ease all .3s;
+          box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.555);
+          color: rgba(255, 255, 255, 0.507);
+          &:hover{
+            box-shadow: 2px 3px 10px rgba(180, 45, 45, 0.555);
+          }
+          &:focus{
+            box-shadow: 2px 3px 10px rgba(180, 45, 45, 0.555);
           }
         }
 
+        button{
+          margin-top: 10px;
+          background-color: rgba(161, 29, 29, 0.795);
+          border: none;
+          box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.555);
+          transition: ease all .3s;
+          &:hover{
+            box-shadow: 2px 3px 10px rgba(180, 45, 45, 0.555);
+          }
+          &:focus{
+            box-shadow: 2px 3px 10px rgba(180, 45, 45, 0.555);
+          }
+        }
       }
     }
+  
   }
-
 }

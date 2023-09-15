@@ -38,24 +38,24 @@
           height: 10px;
           width: 10px;
         }
-        &::-webkit-scrollbar-thumb:active {
+         &::-webkit-scrollbar-thumb:active {
           background-color: #791c15;
         }
         &::-webkit-scrollbar-thumb:hover {
-          background-color: #991712;
+          background-color: #790d09;
         }
         &::-webkit-scrollbar-thumb {
-          border-radius: 5px;
-          background-color: #7e1818;
+          
+          background-color: #740909;
         }
         &::-webkit-scrollbar-track:active {
-          background-color: #c22c2c;
+          background-color: #911a1a;
         }
          &::-webkit-scrollbar-track:hover {
-         background-color: #693939;
+         background-color: #333333;
        }
-        &::-webkit-scrollbar-track {
-          border-radius: 5px;
+       &::-webkit-scrollbar-track {
+          
           background-color: #333333;
           transition: all ease .3s;
         }
