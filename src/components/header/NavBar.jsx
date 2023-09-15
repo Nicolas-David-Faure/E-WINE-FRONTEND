@@ -18,26 +18,25 @@ const NavBar = () => {
 
   const dispatch = useDispatch()
 
-  let timeOut;
-
-  const handleDisableNav =()=>{
-    clearTimeout(timeOut);
+ 
+  const handleActiveNav = () => { //active a setTimeOut whith some delay before define setIsHover to true 
+   
+    if(activeNav === false){
+      setActiveNav(true);
+    }else{
+    
     setActiveNav(false);
     setCategory(null)
-   
-  }
-  const handleActiveNav = () => { //active a setTimeOut whith some delay before define setIsHover to true 
-    clearTimeout(timeOut);
-    timeOut = setTimeout(() => {
-      setActiveNav(true);
-    }, 50);
+    }
+  
   };
 
   const handleSubmit = ( word ) => {
-
+    setActiveNav(false)
     axios
       .get(`/api/search?query=${word}`)
       .then((response) => {
+
         dispatch(changeSearch(response.data));
       })
       .catch(() => alert("No tenemos ese vino en nuestro catalogo"));
@@ -53,7 +52,7 @@ const NavBar = () => {
   return (
     <motion.nav
     onClick={handleActiveNav}
-    onHoverEnd={handleDisableNav}
+    
     className="navBar__main">
       <Link 
       onClick={()=>dispatch(changeSearch(null))}
