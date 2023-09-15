@@ -4,9 +4,11 @@ import AddProduc from "./AddProduc";
 import DeleteProduc from "./DeleteProduc";
 import "./scss/addProduct.scss";
 import "./scss/deleteProduct.scss";
+import EditProduct from "./EditProduct";
 
 const AddYRemProduct = () => {
   const [winesProduct, setWinesProduct] = useState(null);
+  const [editingProductData, setEditingProductData] = useState(null);
 
   const handleProductAdded = (newProduct) => {
     setWinesProduct([...winesProduct, newProduct]);
@@ -19,11 +21,18 @@ const AddYRemProduct = () => {
     setWinesProduct(updatedProducts);
   };
 
+  const handleProductEdit = (editedProduct) => {
+    const updatedProducts = winesProduct.map((product) =>
+      product.id === editedProduct.id ? editedProduct : product
+    );
+    setWinesProduct(updatedProducts);
+    setEditingProductData(null);
+  };
+
   useEffect(() => {
     axios
       .get("/api/wines")
       .then((res) => {
-        
         setWinesProduct(res.data);
       })
       .catch(() => alert("Se ha producido un error al cargar los productos"));
@@ -41,13 +50,26 @@ const AddYRemProduct = () => {
                 productId={product.id}
                 onDeleteProduct={handleProductDeleted}
               />
+              <button onClick={() => setEditingProductData(product)}>
+                Editar
+              </button>
             </li>
           ))}
         </ul>
       </div>
       <div className="main__containerAdd">
-      <h2>Agregar Nuevo Producto</h2>
-        <AddProduc onProductAdd={handleProductAdded} />
+        <h2>
+          {editingProductData ? "Editar Producto" : "Agregar Nuevo Producto"}
+        </h2>
+        {editingProductData ? (
+          <EditProduct
+            productId={editingProductData.id}
+            productData={editingProductData}
+            onEditProduct={handleProductEdit}
+          />
+        ) : (
+          <AddProduc onProductAdd={handleProductAdded} />
+        )}
       </div>
     </div>
   );
