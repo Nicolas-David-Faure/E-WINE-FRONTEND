@@ -8,11 +8,12 @@ import { changeSearch } from "../../store/slice/searchSlice";
 import "./scss/search.scss";
 //icons
 import searIcon from "../../assets/icons/search.svg";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
   const [search, setSearch] = useState("");
   const dispatch = useDispatch();
-
+  const navigate = useNavigate()
   const handleChange = (e) => {
     const data = e.target.value;
 
@@ -27,6 +28,7 @@ const Search = () => {
       .get(`/api/search?query=${search}`)
       .then((response) => {
         setSearch('')
+        navigate('/')
         dispatch(changeSearch(response.data));
       })
       .catch(() => alert("No tenemos ese vino en nuestro catalogo"));

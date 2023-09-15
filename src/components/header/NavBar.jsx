@@ -31,10 +31,12 @@ const NavBar = () => {
   
   };
 
-  const handleSubmit = ( word ) => {
+  const handleSubmit = (  category , word ) => {
     setActiveNav(false)
+
+   
     axios
-      .get(`/api/search?query=${word}`)
+      .get(`/api/category/${word}/${category}`)
       .then((response) => {
         navigate('/')
         dispatch(changeSearch(response.data));
@@ -79,8 +81,9 @@ const NavBar = () => {
           {
           category &&
           dataCategory[category].map(((word, i)=>{
+            
             return(
-              <a onClick={()=>handleSubmit(word)} key={i}>{word}</a>
+              <a onClick={()=>handleSubmit(word , category)} key={i}>{word}</a>
             )
           }))}
       </motion.div>
