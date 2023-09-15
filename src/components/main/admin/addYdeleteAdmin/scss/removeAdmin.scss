@@ -1,16 +1,11 @@
+@import  '../../../../../assets/sass/mixin'; 
 .remove__admin {
-  margin-bottom: 20px;
-
-  h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-
-  select {
-    width: 80%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
+  @include panelSuperAdmind;
+  background-color: rgb(167, 110, 35);
+  button{
+    background-color: rgb(190, 94, 16);
+    &:hover{
+      background-color: rgb(121, 62, 14);
+   }
   }
 }

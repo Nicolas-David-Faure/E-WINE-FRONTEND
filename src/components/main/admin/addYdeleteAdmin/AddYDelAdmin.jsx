@@ -51,10 +51,14 @@ const AddYDelAdmin = () => {
 
   return (
     <div className="main__admin">
-      <h1>Administrar Usuarios</h1>
-      <AddAdmin makeAdmin={makeAdmin} users={users} />
-      <RemoveAdmin revokeAdmin={revokeAdmin} users={users} />
-      <DeleteUser deleteUser={deleteUser} users={users} />
+      <h2>Administrar Usuarios</h2>
+
+      <div className='main__admin_contComponents'>
+
+        <AddAdmin makeAdmin={makeAdmin} users={users} />
+        <RemoveAdmin revokeAdmin={revokeAdmin} users={users} />
+        <DeleteUser deleteUser={deleteUser} users={users} />
+      </div>
     </div>
   );
 };

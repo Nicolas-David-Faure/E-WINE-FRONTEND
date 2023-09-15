@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 //styles
 import "./scss/addAdmin.scss";
+//utils
+import firstLetterCapitalized from '../../../../utils/firstLetterCapitalized'
 
 const AddAdmin = ({ makeAdmin, users }) => {
   const [selectedUser, setSelectedUser] = useState(null);
@@ -27,11 +29,11 @@ const AddAdmin = ({ makeAdmin, users }) => {
         <option value="">Selecciona un usuario</option>
         {users?.map((user) => (
           <option key={user.id} value={user.id}>
-            {user.name}
+            {firstLetterCapitalized(user.name)}
           </option>
         ))}
       </select>
-      <button onClick={handleAdd}>Agregar como Administrador</button>
+      <button onClick={handleAdd}>Agregar</button>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 //styles
 import "./scss/deleteAdmin.scss";
-
+import firstLetterCapitalized from '../../../../utils/firstLetterCapitalized'
 const DeleteUser = ({ deleteUser, users }) => {
   const [selectedUser, setSelectedUser] = useState(null);
 
@@ -27,11 +27,11 @@ const DeleteUser = ({ deleteUser, users }) => {
         <option value="">Selecciona un usuario</option>
         {users?.map((user) => (
           <option key={user.id} value={user.id}>
-            {user.name}
+            {firstLetterCapitalized(user.name)}
           </option>
         ))}
       </select>
-      <button onClick={handleDelete}>Eliminar Usuario</button>
+      <button onClick={handleDelete}>Eliminar</button>
     </div>
   );
 };

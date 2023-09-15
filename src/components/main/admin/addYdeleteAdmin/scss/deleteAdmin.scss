@@ -1,16 +1,12 @@
+@import  '../../../../../assets/sass/mixin'; 
 .delete__user {
-  margin-bottom: 20px;
+  @include panelSuperAdmind;
+  background-color: rgb(151, 20, 20);
 
-  h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-
-  select {
-    width: 80%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
+  button{
+    background-color: rgb(184, 10, 10);
+    &:hover{
+      background-color: rgb(141, 7, 7);
+   }
   }
 }
