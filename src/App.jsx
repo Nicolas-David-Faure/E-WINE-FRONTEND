@@ -18,18 +18,19 @@ function App() {
   const navigate = useNavigate()
 
   
-  useEffect(()=>{
-    axios('/api/user/me')
-    .then( ( { data : { user } } )=>{
-      if(user){
-      navigate('/')
-      dispatch(handleUser(user))
-    }
-    })
-    .catch(err=>{
-      console.error(err)
-    })
-  },[])
+    useEffect(()=>{
+      axios('/api/user/me')
+      .then( ( { data : { user } } )=>{
+        if(user){
+        navigate('/')
+        dispatch(handleUser(user))
+      }
+      })
+      .catch(err=>{
+        console.error(err)
+      })
+    },[])
+ 
 
   return (
     <main className='main__main'>
