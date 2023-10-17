@@ -50,7 +50,12 @@ const Grid = () => {
                   }
               }
               return(
-                <button  onClick={()=>setPage(num)} className="grid__page" key={i+1} value={num}>{num}</button>
+                <button  
+                  onClick={()=>setPage(num)} 
+                  className="grid__page" 
+                  key={i+1} value={num}>
+                    {num}
+                  </button>
               )
             })}
           </ul>

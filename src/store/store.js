@@ -10,5 +10,5 @@ export const store = configureStore({
     userReducer: userSlice.reducer,
     continueShoppingReducer: continueShoppingSlice.reducer,
     searchReducer: searchSlice.reducer,
-  },
+  }
 });
