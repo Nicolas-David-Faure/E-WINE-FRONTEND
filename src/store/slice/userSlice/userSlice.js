@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   isLoggin: false,
   user: null,
+  menuOpen: false
   
 }
 
@@ -22,9 +23,16 @@ export const userSlice = createSlice({
         state.isLoggin = false
         state.user = null
       }
-     }
+     },
+     toggleMenu:  ( state , {payload} )=>{
+      if(payload == false){
+        state.menuOpen = false
+      }else{
+        state.menuOpen = !state.menuOpen 
+      }
+     },
   }
 })
 // Action creators are generated for each case reducer function
-export const { changeLoggin , handleUser} = userSlice.actions
+export const { changeLoggin , handleUser , toggleMenu } = userSlice.actions
 

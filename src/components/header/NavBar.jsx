@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 //redux
-import { useDispatch } from "react-redux";
+import { useDispatch , useSelector } from "react-redux";
 //axios
 import axios from "axios";
 //router
@@ -10,29 +10,30 @@ import "./scss/navBar.scss";
 //framer-motion
 import { motion } from "framer-motion";
 import { changeSearch } from "../../store/slice/searchSlice";
+import { toggleNav } from "../../store/slice/navSlice";
 
 const NavBar = () => {
-  const [ activeNav , setActiveNav ] = useState(false)
+  const { activeNav } = useSelector(store=>store.navBarReducer)
   const [ dataCategory , setDatCategory ] = useState(null)
   const [ category , setCategory ] = useState(null)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
  
-  const handleActiveNav = () => { //active a setTimeOut whith some delay before define setIsHover to true 
-   
+  const handleActiveNav = (e) => { //active a setTimeOut whith some delay before define setIsHover to true 
+    e.stopPropagation()
     if(activeNav === false){
-      setActiveNav(true);
+      dispatch(toggleNav(true))
     }else{
     
-    setActiveNav(false);
-    setCategory(null)
+      dispatch(toggleNav(false))
+      setCategory(null)
     }
   
   };
 
   const handleSubmit = (  category , word ) => {
-    setActiveNav(false)
+    dispatch(toggleNav(false))
 
    
     axios
@@ -58,22 +59,22 @@ const NavBar = () => {
     className="navBar__main">
       <Link 
       onClick={()=>dispatch(changeSearch(null))}
-      to="/"><motion.a onHoverStart={()=>{
+      to="/"><motion.p onHoverStart={()=>{
 
         setCategory('winery')
-        }}>Home</motion.a></Link>
-      <motion.a 
+        }}>Home</motion.p></Link>
+      <motion.p 
       onHoverStart={()=>{setCategory('winery')}}
     
-      >Bodegas</motion.a>
-      <motion.a 
+      >Bodegas</motion.p>
+      <motion.p 
       onHoverStart={()=>{setCategory('grape')}}
       
-      >Uvas</motion.a>
-      <motion.a 
+      >Uvas</motion.p>
+      <motion.p 
     
       onHoverStart={()=>{setCategory('wine_type')}}
-      >Tipo de vinos</motion.a>
+      >Tipo de vinos</motion.p>
       <motion.div
         initial={{display:'none'}}
         animate={activeNav ? { display:'flex'} : {display:'none'} }

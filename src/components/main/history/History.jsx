@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 //styles
 import './scss/history.scss'
 //axios
@@ -21,7 +21,7 @@ const History = () => {
     sortByNumCart[numCart].push(element)
   });
   
-  let keysOfCart =  Object.keys(sortByNumCart)
+  let keysOfCart = Object.keys(sortByNumCart)
 
   useEffect(()=>{
     axios.get('/api/history/'+user?.email)
@@ -45,7 +45,7 @@ const History = () => {
           },0)
 
             return (
-          <div className='history__divisor' key={i} >
+          <div className='history__divisor' key={'divisor-'+i}>
             <div className='history__divisor_date'>
               <p>{fecha}</p>
               <p>{hora}</p>
@@ -55,7 +55,6 @@ const History = () => {
                 return (
                 <li className='history__divisor_list' key={ele.id}>
                   <img src={ele.image} alt={ele.name} />
-                  
                     <div className='history__divisor_list_text'>
                       <p>{truncateString(ele.name, 30, true)}</p>
                       <p>{ele.grape}</p>
@@ -64,16 +63,14 @@ const History = () => {
                       <p>{ele.count} U</p>
                       <p>${numberFormater(ele.amount)},00</p>
                     </div>
-               
                 </li>
                 )})}
-             <div className='history__divisor_date'>
+             <div className='history__divisor_date' key={`total-${i}`}>
               <p>Total</p>
               <p>${numberFormater(totalAmount)},00</p>
             </div>
           </div>
           )
-         
          })
 
         }
