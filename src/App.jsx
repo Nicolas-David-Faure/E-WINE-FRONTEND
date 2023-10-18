@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 //redux
 import { useDispatch } from 'react-redux';
-import { handleUser } from './store/slice/userSlice';
+import { handleUser, toggleMenu } from './store/slice/userSlice';
 //axios
 import axios from 'axios';
 //styles
@@ -11,6 +11,7 @@ import './App.scss'
 //components
 import Header from './components/header/Header'
 import MainContent from './components/main/MainContent' 
+import { toggleNav } from './store/slice/navSlice';
 
 
 function App() {
@@ -33,7 +34,10 @@ function App() {
  
 
   return (
-    <main className='main__main'>
+    <main onClick={()=>{
+      dispatch(toggleNav(false))
+      dispatch(toggleMenu(false))
+      }} className='main__main'>
       <Header />
       <MainContent />
      

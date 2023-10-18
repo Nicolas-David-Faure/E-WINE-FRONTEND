@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 //redux
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 //router
 import { Link, useNavigate } from "react-router-dom";
 //styles
@@ -10,6 +10,7 @@ import cartIcon from "../../assets/icons/cart.svg";
 import userIcon from "../../assets/icons/user.svg";
 import panelAdminIcon from "../../assets/icons/panelAdmin.svg";
 import Logout from "../auth/Logout";
+import { toggleMenu } from "../../store/slice/userSlice";
 const UserButtons = () => {
   const userInfo = useSelector((store) => store.userReducer);
 
@@ -33,17 +34,18 @@ const UserButtons = () => {
 
 
 const UserButtonsIsLoggin = ({ userInfo }) => {
-  const user = userInfo.user;
-  const [ menuOpen , setMenuOpen ] = useState(false)
+  const { user ,menuOpen  } = userInfo;
   const navigate = useNavigate()
- 
-  const handleOpenMenu =()=>{
-    setMenuOpen(prev=>!prev)
+  const dispatch = useDispatch()
+
+  const handleOpenMenu =(e)=>{
+    e.stopPropagation()
+    dispatch(toggleMenu())
   }
   const handleSelectList =(e)=>{
     const menuValue = e.target.innerText
+    dispatch(toggleMenu(false))
     if(menuValue === 'Historial'){
-      setMenuOpen(false)
       navigate('/user/history')
     }
    

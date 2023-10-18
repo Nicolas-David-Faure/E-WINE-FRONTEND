@@ -11,19 +11,20 @@
     font-size: 1.2rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.178);
     position: relative;
-    a{
+    p{
       
       user-select: none;
       color: $color6;
       cursor: pointer;
     }
-    a:hover, a:focus{
+    p:hover, p:focus{
       color: $color5;
     }
-    a:active{
+    p:active{
       color: rgb(82, 25, 49);
     }
-  }
+   
+  } 
 
   a{
     position: relative;
@@ -42,6 +43,18 @@
     flex-wrap: wrap;
     padding: 10px;
     text-align: start;
+    a{
+      
+      user-select: none;
+      color: $color6;
+      cursor: pointer;
+    }
+    a:hover, a:focus{
+      color: $color5;
+    }
+    a:active{
+      color: rgb(82, 25, 49);
+    }
    
   }
 }
