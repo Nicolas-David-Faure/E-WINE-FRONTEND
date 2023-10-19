@@ -12,6 +12,8 @@
 }
 
 .main__main{
+  display: flex;
+  flex-direction: column;
   height: 100%;
   background: rgb(133,14,21);
   background: linear-gradient(0deg, rgb(152, 30, 38) 0%, rgb(50, 9, 5) 100%);
