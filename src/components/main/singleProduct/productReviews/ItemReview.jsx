@@ -4,7 +4,7 @@ const ItemReview = ( { review }) => {
   return (
     <li>
       <p>{review.name}</p>
-      <p>{review.text}</p>
+      <p>{review.review}</p>
     </li>
   )
 }
